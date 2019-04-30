@@ -1,42 +1,68 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
+import yourSVG from '../images/Logo-test.svg';
 
-const Header = ({ siteTitle }) => (
+const Logo = () => (
+  <>
+    <img
+      style={{
+        width: '70px'
+      }}
+      src={yourSVG}
+      alt="logo"
+    />{' '}
+  </>
+);
+
+// const Nav = (props) => <ul>{menu.map(item => `<li key=${item.slug}>${item.title}</li>`)}</ul>;
+const Nav = ({ menu }) => (
+  <nav>
+    {menu.map(item => (
+      <Link to={item.slug} key={item.slug}>
+        {item.title}
+      </Link>
+    ))}
+  </nav>
+);
+
+const Header = ({ menu }) => (
   <header
     style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
+      marginBottom: `1.45rem`
     }}
   >
     <div
       style={{
         margin: `0 auto`,
         maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        padding: `1.45rem 1.0875rem`
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
+      <Link
+        to="/"
+        style={{
+          color: `white`,
+          textDecoration: `none`
+        }}
+      >
+        <Logo
           style={{
-            color: `white`,
-            textDecoration: `none`,
+            width: '50px'
           }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+        />
+      </Link>
     </div>
+    <Nav menu={menu} />
   </header>
-)
+);
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+Nav.propTypes = {
+  menu: PropTypes.array.isRequired
+};
 
 Header.defaultProps = {
-  siteTitle: ``,
-}
+  siteTitle: ``
+};
 
-export default Header
+export default Header;
