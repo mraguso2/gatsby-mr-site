@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
-import yourSVG from '../images/Logo-test.svg';
+import yourSVG from '../images/logo-MR.svg';
 
 const Logo = () => (
   <>
@@ -11,7 +11,7 @@ const Logo = () => (
       }}
       src={yourSVG}
       alt="logo"
-    />{' '}
+    />
   </>
 );
 
