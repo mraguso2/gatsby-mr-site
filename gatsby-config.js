@@ -4,8 +4,8 @@ module.exports = {
     description: `A personal website to showcase projects, ideas, designs, and allow people to get in contact with me or find grammatical errors in my blog articles.`,
     author: `@MikeRaguso`,
     menu: [
-      { slug: '/projects', title: 'Projects' },
       { slug: '/about', title: 'About' },
+      { slug: '/projects', title: 'Projects' },
       { slug: '/contact', title: 'Contact' }
     ]
   },
