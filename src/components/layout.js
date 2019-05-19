@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import Header from './header';
+import Footer from './footer';
 import './layout.css';
 
 const LayoutStyled = styled.div`
@@ -11,6 +12,7 @@ const LayoutStyled = styled.div`
   max-width: 960px;
   padding: 0px 1.0875rem 1.45rem;
   padding-top: 0;
+  min-height: 100vh;
 `;
 
 const Layout = ({ children }) => (
@@ -33,10 +35,7 @@ const Layout = ({ children }) => (
         <LayoutStyled>
           <main>{children}</main>
         </LayoutStyled>
-        <footer>
-          © {new Date().getFullYear()}, Built with 💙 by&nbsp;
-          <a href="/">MR</a>
-        </footer>
+        <Footer />
       </>
     )}
   />

@@ -4,22 +4,36 @@ import React from 'react';
 import styled from 'styled-components';
 
 import logoMR from '../images/logo-MR.svg';
+import { below, above } from '../utilities/breakpoints';
 
 const LogoStyled = styled.img`
   width: 55px;
+  ${above.small_1`
+    width: 65px;
+  `}
+  ${above.med_1`
+    width: 75px;
+  `}
 `;
 
 const HeaderStyled = styled.header`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin: 10px 15px 0px;
   max-width: 960px;
+  margin: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+  ${below.small_1`
+    justify-content: space-between;
+    margin: 5px 5px 0px;
+    flex-wrap: wrap;
+  `}
 `;
 
 const NavStyled = styled.ul`
   display: flex;
   list-style: none;
+  padding-left: inherit;
 
   .navItem {
     padding: 5px;
@@ -31,15 +45,17 @@ const NavStyled = styled.ul`
 `;
 
 const MyNameText = styled.p`
-  width: 80%;
   height: 25px;
   background: white;
-  margin: 0 10px 10px 0px;
   padding-left: 10px;
   position: relative;
   display: flex;
   align-items: center;
   color: #1663c7;
+  align-self: flex-end;
+  margin-bottom: 13px;
+  margin-left: 10px;
+  width: 200px;
 
   ::after {
     content: '';
@@ -54,12 +70,23 @@ const MyNameText = styled.p`
     -ms-transform: skew(-20deg);
     transform: skew(-20deg);
   }
+  ${below.small_1`
+    margin: 0 10px 10px 0px;
+    width: 80%;
+    order: 2;
+  `}
+  ${above.small_1`
+    margin-bottom: 10px;
+  `}
+  ${above.med_1`
+    margin-bottom: 8px;
+  `}
 `;
 
 const Logo = () => <LogoStyled src={logoMR} alt="logo" />;
 
 const Nav = ({ menu }) => (
-  <nav>
+  <nav style={{ marginLeft: 'auto' }}>
     <NavStyled>
       {menu.map(item => (
         <li className="navItem" key={item.slug}>
@@ -76,9 +103,9 @@ const Header = ({ menu }) => (
       <Link to="/">
         <Logo />
       </Link>
+      <MyNameText>Mike Raguso</MyNameText>
       <Nav menu={menu} />
     </HeaderStyled>
-    <MyNameText>Mike Raguso</MyNameText>
   </>
 );
 

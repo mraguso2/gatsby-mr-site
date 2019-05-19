@@ -4,14 +4,16 @@ import { Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import SliceHero from '../components/sliceHero';
+import AboutMe from '../components/aboutMe';
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`mike raguso`, `portfolio`, `gatsby`]} />
+    <SEO
+      title="Home"
+      keywords={[`mike raguso`, `raguso`, `slice of the web`, `portfolio`, `gatsby`]}
+    />
     <SliceHero />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <AboutMe />
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 );
