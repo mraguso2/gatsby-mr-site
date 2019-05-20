@@ -54,6 +54,9 @@ const moveSliceM = keyframes`
   10% {
     opacity: 1;
   }
+  95% {
+    opacity: 1; transform: translate3d(10px, -25px, 0) rotate(20deg);
+  }
   100% {
     opacity: 1; transform: translate3d(10px, -25px, 0) rotate(20deg);
   }
@@ -65,6 +68,9 @@ const moveSliceW = keyframes`
   }
   10% {
     opacity: 1;
+  }
+  95% {
+    opacity: 1; transform: translate3d(-10px, 20px, 0) rotate(40deg);
   }
   100% {
     opacity: 1; transform: translate3d(-10px, 20px, 0) rotate(40deg);
