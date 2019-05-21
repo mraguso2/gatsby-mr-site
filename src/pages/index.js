@@ -5,6 +5,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import SliceHero from '../components/sliceHero';
 import AboutMe from '../components/aboutMe';
+import Projects from '../components/projects';
 
 const IndexPage = () => (
   <Layout>
@@ -14,6 +15,7 @@ const IndexPage = () => (
     />
     <SliceHero />
     <AboutMe />
+    <Projects />
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 );

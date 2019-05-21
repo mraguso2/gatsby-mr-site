@@ -1,9 +1,12 @@
 ---
 slug: '/not-famous-yet'
 title: 'Not Famous Yet'
-# link: 'http://healthbymac.com'
-# date: '2017-08-30'
-# picture: 'somepic.jpeg'
+description: 'A place where small, just-getting-started folks can come together. For all those future famous [insert whatever you plan on attempting] ⭐️⭐️'
+link: 'https://www.notfamousyet.com'
+date: '2019-06-30'
+image: 'somepic.jpeg'
+icon: 'NFY-icon.png'
+tags: ['WIP', 'FUN']
 ---
 
 #Yolo

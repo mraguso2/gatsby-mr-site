@@ -1,9 +1,12 @@
 ---
 slug: '/mike-raguso'
-title: 'This Site | Personal Website'
-# link: 'http://healthbymac.com'
-# date: '2017-08-30'
-# picture: 'somepic.jpeg'
+title: 'This Website | Personal Website'
+description: 'My personal portfolio...You are looking at it right now 😄'
+link: 'https://www.mikeraguso.com'
+date: '2019-05-30'
+image: 'somepic.jpeg'
+icon: 'logo-MR.svg'
+tags: ['WIP', 'FUN']
 ---
 
 #Yolo

@@ -118,3 +118,12 @@ mark {
   background-color: #ff0;
   color: #000;
 }
+
+a {
+  color: #1663c7;
+  /* #114f9e */
+}
+
+a:visited {
+  color: #731cb6;
+}

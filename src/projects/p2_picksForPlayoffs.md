@@ -1,9 +1,12 @@
 ---
 slug: '/picks-for-playoffs'
-title: 'NFL Playoffs App'
-# link: 'http://healthbymac.com'
-# date: '2017-08-30'
-# picture: 'somepic.jpeg'
+title: 'Picks For Playoffs | NFL Playoffs Fun'
+description: 'App where you get to pick who you think will win during the NFL playoffs 🏈'
+link: 'https://picks-for-playoffs.herokuapp.com/'
+date: '2018-12-31'
+image: 'somepic.jpeg'
+icon: 'PFP-icon.png'
+tags: ['WIP', 'FUN']
 ---
 
 #Yolo
