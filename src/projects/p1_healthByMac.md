@@ -5,7 +5,7 @@ description: 'A blog and marketing website for an extremely talented personal tr
 link: 'http://healthbymac.com'
 date: '2017-08-30'
 image: 'somepic.jpeg'
-icon: 'HBY-icon.png'
+icon: 'HBM-icon.png'
 tags: ['WIP', 'FUN']
 ---
 

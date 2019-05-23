@@ -5,7 +5,7 @@ description: 'My personal portfolio...You are looking at it right now 😄'
 link: 'https://www.mikeraguso.com'
 date: '2019-05-30'
 image: 'somepic.jpeg'
-icon: 'logo-MR.svg'
+icon: 'logo-MR.png'
 tags: ['WIP', 'FUN']
 ---
 

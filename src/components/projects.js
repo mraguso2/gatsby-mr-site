@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, StaticQuery, graphql } from 'gatsby';
 
-import Image from './image';
+import ImageTest from './imagesProjectIcons';
 import colors from '../utilities/colors';
 import { above, below } from '../utilities/breakpoints';
 import { SectionContainer, SectionContentStyled, SectionTitle } from '../styles/section';
@@ -34,6 +34,25 @@ const ProjectBioContainer = styled.p`
   `}
 `;
 
+const ImageContainer = styled.div`
+  width: 100%;
+  max-width: 90px;
+  ${below.small_0`
+    max-width: 110px;
+  `}
+  ${above.small_1`
+    max-width: 130px;
+  `}
+  ${above.med_1`
+    max-width: 150px;
+  `}
+`;
+
+// box-shadow: 1px 2px 11px rgba(0,0,0,0.15);
+// padding: 15px;
+// display: flex;
+// background: #ddecff;
+
 const PROJECT_LISTING = graphql`
   query ProjectListQuery {
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
@@ -61,12 +80,18 @@ const Projects = () => (
           <div>
             {allMarkdownRemark.edges.map(({ node }) => (
               <article key={node.frontmatter.slug}>
+                <ImageContainer>
+                  <ImageTest
+                    src={node.frontmatter.icon}
+                    style={{ borderRadius: '10%', border: '2px solid hsl(262,90%,96%)' }}
+                  />
+                </ImageContainer>
                 <Link to={`/projects${node.frontmatter.slug}`}>
                   <h2>{node.frontmatter.title}</h2>
                 </Link>
                 <p>{node.frontmatter.description}</p>
                 <Link className="tellMeMore" to={`/projects${node.frontmatter.slug}`}>
-                  Tell Me More
+                  Tell Me More!
                 </Link>
               </article>
             ))}

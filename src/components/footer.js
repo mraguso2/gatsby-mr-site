@@ -15,6 +15,12 @@ const FooterStyled = styled.footer`
     margin: auto;
     width: 100%;
   }
+  & a {
+    color: #b7ddff;
+  }
+  & a:visited {
+    color: #d8aefd;
+  }
 `;
 
 // hsl(212, 100%, 90%);

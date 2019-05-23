@@ -19,7 +19,7 @@ const LogoStyled = styled.img`
 const HeaderStyled = styled.header`
   display: flex;
   align-items: center;
-  max-width: 960px;
+  max-width: 1150px;
   margin: auto;
   padding: 10px;
   margin-bottom: 10px;
@@ -40,6 +40,9 @@ const NavStyled = styled.ul`
 
     a {
       text-decoration: none;
+      ${above.med_1`
+        font-size: 1.1rem;
+      `}
     }
   }
 `;
