@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
-const ImageTest = ({ src, ...props }) => {
+const ImageIcons = ({ src, ...props }) => {
   const data = useStaticQuery(graphql`
     query {
       allFile(filter: { internal: { mediaType: { regex: "images/" } } }) {
@@ -32,4 +32,4 @@ const ImageTest = ({ src, ...props }) => {
   return fluid ? <Img fluid={fluid} Tag="div" {...props} /> : null;
 };
 
-export default ImageTest;
+export default ImageIcons;

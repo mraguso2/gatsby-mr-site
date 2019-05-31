@@ -27,6 +27,8 @@ body {
   word-wrap: break-word;
   font-kerning: normal;
   margin: 0;
+  overflow-x: hidden;
+  position: relative;
   -moz-font-feature-settings: "kern", "liga", "clig", "calt";
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";

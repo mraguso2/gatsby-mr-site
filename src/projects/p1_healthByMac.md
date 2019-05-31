@@ -1,7 +1,7 @@
 ---
 slug: '/health-by-mac'
-title: 'Health By Mac | Personal Trainer'
-description: 'A blog and marketing website for an extremely talented personal trainer combining a focus on exercise and health 🥗'
+title: 'Health By Mac'
+description: 'A blog and marketing website for a very talented personal trainer combining a focus on exercise and health 🥗'
 link: 'http://healthbymac.com'
 date: '2017-08-30'
 image: 'somepic.jpeg'

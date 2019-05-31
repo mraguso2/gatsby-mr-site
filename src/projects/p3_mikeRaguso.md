@@ -1,11 +1,11 @@
 ---
 slug: '/mike-raguso'
-title: 'This Website | Personal Website'
+title: 'This Website'
 description: 'My personal portfolio...You are looking at it right now 😄'
 link: 'https://www.mikeraguso.com'
 date: '2019-05-30'
 image: 'somepic.jpeg'
-icon: 'logo-MR.png'
+icon: 'MR-icon2.png'
 tags: ['WIP', 'FUN']
 ---
 

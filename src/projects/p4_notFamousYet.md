@@ -1,7 +1,7 @@
 ---
 slug: '/not-famous-yet'
-title: 'Not Famous Yet'
-description: 'A place where small, just-getting-started folks can come together. For all those future famous [insert whatever you plan on attempting] people ⭐⭐️'
+title: 'Not Famous Yet Club'
+description: 'A place where small, just getting started folks can come together. For all those future famous ______ people ⭐⭐️'
 link: 'https://www.notfamousyet.com'
 date: '2019-06-30'
 image: 'somepic.jpeg'

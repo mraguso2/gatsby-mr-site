@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes, css } from 'styled-components';
 
@@ -19,10 +19,10 @@ const HeroStyled = styled.div`
   text-align: center;
   font-size: 40px;
   padding: 25px;
-  margin: 15px auto;
+  margin: 25px auto;
   ${above.small_1`
     font-size: 50px;
-    margin: 40px auto;
+    margin: 40px auto 60px;
   `}
   ${below.small_0`
     font-size: 35px;
@@ -83,7 +83,7 @@ const PieImage = styled.img`
   opacity: 0;
   transition: all 1s;
   top: ${props => (props.letter === 'M' ? '0' : 'inherit')};
-  animation: ${props => (props.letter === 'M' ? moveSliceM : moveSliceW)} 1s linear 1s 1 forwards;
+  animation: ${props => (props.letter === 'M' ? moveSliceM : moveSliceW)} 1s linear 0.7s 1 forwards;
 `;
 
 const EllipseBackground = () => <ImgStyled src={ellipseBackground} alt="Background Image" />;
@@ -95,24 +95,65 @@ const handlePieClick = e => {
   pieContainer.replaceChild(seconds, slice);
 };
 
-const LetterPieSlice = ({ letter }) => (
-  <PieContainer onClick={e => handlePieClick(e)}>
+// TODO add validation and make better
+
+const LetterPieSlice = ({ letter, counter = {} }) => (
+  <PieContainer
+    onClick={e => {
+      counter.setCount(counter.count + 1);
+      handlePieClick(e);
+    }}
+  >
     <PieImage letter={letter} src={letter === 'M' ? pieSlicedM : pieSlicedW} alt="Slice of Pie" />
     {letter}
   </PieContainer>
 );
 
-const SliceHero = () => (
-  <div>
-    <EllipseBackground />
-    <HeroStyled>
-      Welcome to <LetterPieSlice letter="M" />y <br />
-      Slice of the <br />
-      <LetterPieSlice letter="W" />
-      eb
-    </HeroStyled>
-  </div>
-);
+const SliceHero = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <EllipseBackground />
+      <HeroStyled>
+        Welcome to <LetterPieSlice letter="M" counter={{ count, setCount }} />y <br />
+        Slice of the <br />
+        <LetterPieSlice letter="W" counter={{ count, setCount }} />
+        eb
+      </HeroStyled>
+      <div>
+        <p className="hungry">Mmm, Blueberry Pie!</p>
+        {count >= 5 ? <h2>Slow Down there!</h2> : ''}
+      </div>
+    </div>
+  );
+};
+
+// class SliceHero extends React.Component {
+//   state = {
+//     count: 0
+//   };
+
+//   handleClick = () => {
+//     this.setState({ count: this.state.count + 1 });
+//   };
+
+//   render() {
+//     return (
+//       <div>
+//         <EllipseBackground />
+//         <HeroStyled>
+//           Welcome to <LetterPieSlice letter="M" counter={this.handleClick} />y <br />
+//           Slice of the <br />
+//           <LetterPieSlice letter="W" />
+//           eb
+//         </HeroStyled>
+//         <div>
+//           <p className="hungry">Mmm, Blueberry Pie! count= {this.state.count}</p>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
 
 LetterPieSlice.propTypes = {
   letter: PropTypes.string.isRequired

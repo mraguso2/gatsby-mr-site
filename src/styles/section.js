@@ -17,7 +17,7 @@ export const FullWidthContainer = styled(SectionContainer)`
 
 export const SectionContentStyled = styled.div`
   max-width: 960px;
-  margin: auto;
+  margin: 30px auto;
   width: 100%;
 `;
 
@@ -25,6 +25,7 @@ export const SectionTitle = styled.h2`
   font-weight: 400;
   display: inline-block;
   position: relative;
+  font-size: 1.85rem;
   &::after {
     display: inline-block;
     position: absolute;

@@ -28,6 +28,21 @@ const HeaderStyled = styled.header`
     margin: 5px 5px 0px;
     flex-wrap: wrap;
   `}
+  ::before {
+    content: '';
+    position: absolute;
+    background: #fdfdfd;
+    background: #ffffff;
+    top: 0;
+    bottom: 0;
+    width: 40%;
+    z-index: -1;
+    transform: skew(15deg);
+    max-width: 440px;
+    ${below.small_1`
+      transform: skew(10deg);
+    `}
+  }
 `;
 
 const NavStyled = styled.ul`

@@ -1,6 +1,6 @@
 ---
 slug: '/picks-for-playoffs'
-title: 'Picks For Playoffs | NFL Playoffs Fun'
+title: 'NFL Picks For Playoffs'
 description: 'App where you get to pick who you think will win during the NFL playoffs 🏈'
 link: 'https://picks-for-playoffs.herokuapp.com/'
 date: '2018-12-31'
