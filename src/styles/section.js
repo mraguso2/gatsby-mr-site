@@ -13,6 +13,7 @@ export const FullWidthContainer = styled(SectionContainer)`
   margin-left: -50vw;
   margin-right: -50vw;
   padding: 5px 15px 15px;
+  z-index: 1;
 `;
 
 export const SectionContentStyled = styled.div`
