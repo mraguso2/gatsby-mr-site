@@ -38,7 +38,8 @@ const HeaderStyled = styled.header`
     width: 40%;
     z-index: -1;
     transform: skew(15deg);
-    max-width: 440px;
+    height: 600px;
+    max-width: 500px;
     ${below.small_1`
       transform: skew(10deg);
     `}
@@ -73,7 +74,7 @@ const MyNameText = styled.p`
   align-self: flex-end;
   margin-bottom: 13px;
   margin-left: 10px;
-  width: 200px;
+  width: 40%;
 
   ::after {
     content: '';
@@ -89,8 +90,8 @@ const MyNameText = styled.p`
     transform: skew(-20deg);
   }
   ${below.small_1`
-    margin: 0 10px 10px 0px;
-    width: 80%;
+    margin: 0 10px 20px 0px;
+    width: 100%;
     order: 2;
   `}
   ${above.small_1`

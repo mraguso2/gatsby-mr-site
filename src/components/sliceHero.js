@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes, css } from 'styled-components';
 
-import ellipseBackground from '../images/ellipse-bkgd.svg';
+import ellipseBackground from '../images/ellipse-bkgd2.svg';
 import pieSlicedM from '../images/Pie-Sliced-M.svg';
 import pieSlicedW from '../images/Pie-Sliced-W.svg';
 import { above, below } from '../utilities/breakpoints';
@@ -17,21 +17,24 @@ const fixedMiddle = css`
 
 const HeroStyled = styled.div`
   text-align: center;
-  font-size: 40px;
-  padding: 25px;
+  font-size: 45px;
+  padding: 20px 5px;
   margin: 25px auto;
+  ${below.small_0`
+    font-size: 35px;
+    padding-top: 25px;
+  `}
   ${above.small_1`
     font-size: 50px;
     margin: 40px auto 60px;
-  `}
-  ${below.small_0`
-    font-size: 35px;
+    padding-top: 25px
   `}
 `;
 
 const ImgStyled = styled.img`
   ${fixedMiddle};
   height: 160px;
+  z-index: -1;
   ${above.small_1`
     height: 210px;
   `}
@@ -41,8 +44,9 @@ const PieContainer = styled.div`
   position: relative;
   display: inline-block;
   & img {
+    width: 25px;
     ${above.small_1`
-      width: 25px;
+      width: 30px;
     `}
   }
 `;
@@ -55,10 +59,10 @@ const moveSliceM = keyframes`
     opacity: 1;
   }
   95% {
-    opacity: 1; transform: translate3d(10px, -25px, 0) rotate(20deg);
+    opacity: 1; transform: translate3d(10px, -28px, 0) rotate(20deg);
   }
   100% {
-    opacity: 1; transform: translate3d(10px, -25px, 0) rotate(20deg);
+    opacity: 1; transform: translate3d(10px, -28px, 0) rotate(20deg);
   }
 `;
 
@@ -70,10 +74,28 @@ const moveSliceW = keyframes`
     opacity: 1;
   }
   95% {
-    opacity: 1; transform: translate3d(-10px, 20px, 0) rotate(40deg);
+    opacity: 1; transform: translate3d(-10px, 28px, 0) rotate(40deg);
   }
   100% {
-    opacity: 1; transform: translate3d(-10px, 20px, 0) rotate(40deg);
+    opacity: 1; transform: translate3d(-10px, 28px, 0) rotate(40deg);
+  }
+`;
+
+const moveBlueberryText = keyframes`
+  0% {
+    transform: rotate(0deg)
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 `;
 
@@ -84,6 +106,39 @@ const PieImage = styled.img`
   transition: all 1s;
   top: ${props => (props.letter === 'M' ? '0' : 'inherit')};
   animation: ${props => (props.letter === 'M' ? moveSliceM : moveSliceW)} 1s linear 0.7s 1 forwards;
+`;
+
+const BlueberryTxt = styled.p`
+  text-align: center;
+  transition: all 0.7s;
+  opacity: ${props => (props.sliceClicked ? 0 : 1)};
+  margin-bottom: 0;
+  margin-top: 30px;
+  animation: ${moveBlueberryText} 3s linear 2s infinite;
+`;
+
+const TooMuchPie = styled.h3`
+  padding: 15px 15px 10px 10px;
+  background: #f2ecfe;
+  color: #5628b1;
+  font-weight: 400;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12);
+  width: 100%;
+  opacity: ${props => (props.showMe ? 1 : 0)};
+  transition: all 0.7s;
+  text-align: center;
+  margin: auto;
+  max-width: 400px;
+  position: relative;
+  #close {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    color: #c10d0d;
+    margin-top: 0;
+    font-size: 13px;
+  }
 `;
 
 const EllipseBackground = () => <ImgStyled src={ellipseBackground} alt="Background Image" />;
@@ -121,39 +176,17 @@ const SliceHero = () => {
         eb
       </HeroStyled>
       <div>
-        <p className="hungry">Mmm, Blueberry Pie!</p>
-        {count >= 5 ? <h2>Slow Down there!</h2> : ''}
+        <BlueberryTxt sliceClicked={count >= 1}>Mmm, Blueberry Pie!</BlueberryTxt>
+        <TooMuchPie showMe={count >= 5}>
+          Slow down, you don't want a belly ache
+          <button type="button" onClick={() => setCount(0)} id="close">
+            close &#10006;
+          </button>
+        </TooMuchPie>
       </div>
     </div>
   );
 };
-
-// class SliceHero extends React.Component {
-//   state = {
-//     count: 0
-//   };
-
-//   handleClick = () => {
-//     this.setState({ count: this.state.count + 1 });
-//   };
-
-//   render() {
-//     return (
-//       <div>
-//         <EllipseBackground />
-//         <HeroStyled>
-//           Welcome to <LetterPieSlice letter="M" counter={this.handleClick} />y <br />
-//           Slice of the <br />
-//           <LetterPieSlice letter="W" />
-//           eb
-//         </HeroStyled>
-//         <div>
-//           <p className="hungry">Mmm, Blueberry Pie! count= {this.state.count}</p>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
 
 LetterPieSlice.propTypes = {
   letter: PropTypes.string.isRequired

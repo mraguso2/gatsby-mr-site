@@ -4,7 +4,7 @@ import { Link, StaticQuery, graphql } from 'gatsby';
 
 import ImageIcons from './imagesProjectIcons';
 import colors from '../utilities/colors';
-import { above, below } from '../utilities/breakpoints';
+import { above } from '../utilities/breakpoints';
 import { SectionContainer, SectionContentStyled, SectionTitle } from '../styles/section';
 
 const ProjectContainer = styled(SectionContainer)`
@@ -22,8 +22,7 @@ const ProjectSectionTitle = styled(SectionTitle)`
 const ProjectCard = styled.article`
   box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12);
   padding: 15px;
-  background: #f6faff;
-  // background: #fff;
+  background: #fff;
   margin: 10px auto 25px;
   border-radius: 10px;
   display: flex;
