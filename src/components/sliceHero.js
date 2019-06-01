@@ -102,12 +102,17 @@ const moveBlueberryText = keyframes`
 const PieImage = styled.img`
   ${fixedMiddle};
   bottom: 0;
+  /* opacity: 0;
+  transform: translate3d(0, 0, 0); */
   opacity: 0;
+  transform: ${props =>
+    props.letter === 'M'
+      ? 'translate3d(10px, -28px, 0) rotate(20deg)'
+      : 'translate3d(-10px, 28px, 0) rotate(40deg)'};
   transition: all 1s;
   will-change: transform, opacity;
   top: ${props => (props.letter === 'M' ? '0' : 'inherit')};
-  animation: ${props => (props.letter === 'M' ? moveSliceM : moveSliceW)} 1.5s linear 0.7s 1
-    forwards;
+  animation: ${props => (props.letter === 'M' ? moveSliceM : moveSliceW)} 1s linear 0.7s 1 forwards;
 `;
 
 const BlueberryTxt = styled.p`
@@ -142,6 +147,8 @@ const TooMuchPie = styled.h3`
     font-size: 13px;
     -webkit-appearance: none;
     -moz-appearance: none;
+    background: none;
+    border: 0;
   }
 `;
 
