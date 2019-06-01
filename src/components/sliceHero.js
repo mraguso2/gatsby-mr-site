@@ -104,8 +104,10 @@ const PieImage = styled.img`
   bottom: 0;
   opacity: 0;
   transition: all 1s;
+  will-change: transform, opacity;
   top: ${props => (props.letter === 'M' ? '0' : 'inherit')};
-  animation: ${props => (props.letter === 'M' ? moveSliceM : moveSliceW)} 1s linear 0.7s 1 forwards;
+  animation: ${props => (props.letter === 'M' ? moveSliceM : moveSliceW)} 0.8s linear 0.7s 1
+    forwards;
 `;
 
 const BlueberryTxt = styled.p`
@@ -114,7 +116,7 @@ const BlueberryTxt = styled.p`
   opacity: ${props => (props.sliceClicked ? 0 : 1)};
   margin-bottom: 0;
   margin-top: 30px;
-  animation: ${moveBlueberryText} 3s linear 2s infinite;
+  animation: ${moveBlueberryText} 3s linear 4s infinite;
 `;
 
 const TooMuchPie = styled.h3`
@@ -138,6 +140,8 @@ const TooMuchPie = styled.h3`
     color: #c10d0d;
     margin-top: 0;
     font-size: 13px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
   }
 `;
 
