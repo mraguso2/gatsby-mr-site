@@ -66,25 +66,17 @@ const moveSliceM = keyframes`
   }
 `;
 
-// const moveSliceW = keyframes`
-//   0% {
-//     opacity: 0; transform: translate3d(0, 0, 0) rotate(10deg);
-//   }
-//   10% {
-//     opacity: 1;
-//   }
-//   95% {
-//     opacity: 1; transform: translate3d(-10px, 28px, 0) rotate(40deg);
-//   }
-//   100% {
-//     opacity: 1; transform: translate3d(-10px, 28px, 0) rotate(40deg);
-//   }
-// `;
 const moveSliceW = keyframes`
-  from {
-    opacity: 1; transform: translate3d(0, 0, 0) rotate(10deg);
+  0% {
+    opacity: 0; transform: translate3d(0, 0, 0) rotate(10deg);
   }
-  to {
+  10% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1; transform: translate3d(-10px, 28px, 0) rotate(40deg);
+  }
+  100% {
     opacity: 1; transform: translate3d(-10px, 28px, 0) rotate(40deg);
   }
 `;
@@ -113,14 +105,18 @@ const PieImage = styled.img`
   /* opacity: 0;
   transform: translate3d(0, 0, 0); */
   opacity: 0;
-  transform: ${props =>
-    props.letter === 'M'
-      ? 'translate3d(10px, -28px, 0) rotate(20deg)'
-      : 'translate3d(-10px, 28px, 0) rotate(40deg)'};
-  transition: all 1s;
+  transform: translate3d(0, 0, 0);
+  /* transition: all 1s; */
   will-change: transform, opacity;
   top: ${props => (props.letter === 'M' ? '0' : 'inherit')};
-  animation: ${props => (props.letter === 'M' ? moveSliceM : moveSliceW)} 1s linear 0.7s;
+  animation: ${props => (props.letter === 'M' ? moveSliceM : moveSliceW)} 1s linear 0.7s 1 forwards;
+  /* &.sliceOut {
+    opacity: 1;
+    transform: ${props =>
+      props.letter === 'M'
+        ? 'translate3d(10px, -28px, 0) rotate(20deg)'
+        : 'translate3d(-10px, 28px, 0) rotate(40deg)'};
+  } */
 `;
 
 const BlueberryTxt = styled.p`
@@ -178,10 +174,38 @@ const LetterPieSlice = ({ letter, counter = {} }) => (
       handlePieClick(e);
     }}
   >
-    <PieImage letter={letter} src={letter === 'M' ? pieSlicedM : pieSlicedW} alt="Slice of Pie" />
+    <PieImage
+      className="sliceOut"
+      letter={letter}
+      src={letter === 'M' ? pieSlicedM : pieSlicedW}
+      alt="Slice of Pie"
+    />
     {letter}
   </PieContainer>
 );
+
+// const handlePieClick = e => {
+//   const pieContainer = e.currentTarget;
+//   const slice = pieContainer.querySelector('img');
+//   const seconds = slice.cloneNode(true);
+//   pieContainer.replaceChild(seconds, slice);
+// };
+
+// const LetterPieSlice = ({ letter, counter = {} }) => (
+//   <PieContainer
+//     onClick={e => {
+//       counter.setCount(counter.count + 1);
+//       handlePieClick(e);
+//     }}
+//   >
+//     <PieImage
+//       letter={letter}
+//       src={letter === 'M' ? pieSlicedM : pieSlicedW}
+//       alt="Slice of Pie"
+//     />
+//     {letter}
+//   </PieContainer>
+// );
 
 const SliceHero = () => {
   const [count, setCount] = useState(0);
