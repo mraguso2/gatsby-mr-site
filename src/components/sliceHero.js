@@ -66,17 +66,25 @@ const moveSliceM = keyframes`
   }
 `;
 
+// const moveSliceW = keyframes`
+//   0% {
+//     opacity: 0; transform: translate3d(0, 0, 0) rotate(10deg);
+//   }
+//   10% {
+//     opacity: 1;
+//   }
+//   95% {
+//     opacity: 1; transform: translate3d(-10px, 28px, 0) rotate(40deg);
+//   }
+//   100% {
+//     opacity: 1; transform: translate3d(-10px, 28px, 0) rotate(40deg);
+//   }
+// `;
 const moveSliceW = keyframes`
-  0% {
-    opacity: 0; transform: translate3d(0, 0, 0) rotate(10deg);
+  from {
+    opacity: 1; transform: translate3d(0, 0, 0) rotate(10deg);
   }
-  10% {
-    opacity: 1;
-  }
-  95% {
-    opacity: 1; transform: translate3d(-10px, 28px, 0) rotate(40deg);
-  }
-  100% {
+  to {
     opacity: 1; transform: translate3d(-10px, 28px, 0) rotate(40deg);
   }
 `;
