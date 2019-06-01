@@ -120,7 +120,7 @@ const PieImage = styled.img`
   transition: all 1s;
   will-change: transform, opacity;
   top: ${props => (props.letter === 'M' ? '0' : 'inherit')};
-  animation: ${props => (props.letter === 'M' ? moveSliceM : moveSliceW)} 1s linear 0.7s 1 forwards;
+  animation: ${props => (props.letter === 'M' ? moveSliceM : moveSliceW)} 1s linear 0.7s;
 `;
 
 const BlueberryTxt = styled.p`
