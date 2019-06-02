@@ -40,6 +40,27 @@ const ImgStyled = styled.img`
   `}
 `;
 
+// const enticePie = keyframes`
+//   {
+//     0% {
+//       transform: scale(.33);
+//     }
+//     80%, 100% {
+//       opacity: 0;
+//     }
+//   }
+// `;
+// ::before {
+//   content: 'adf';
+//   position: relative;
+//   display: block;
+//   width: 300%;
+//   height: 300%;
+//   border-radius: 45px;
+//   background-color: #01a4e9;
+//   animation: ${enticePie} 4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+// }
+
 const PieContainer = styled.div`
   position: relative;
   display: inline-block;
@@ -102,21 +123,12 @@ const moveBlueberryText = keyframes`
 const PieImage = styled.img`
   ${fixedMiddle};
   bottom: 0;
-  /* opacity: 0;
-  transform: translate3d(0, 0, 0); */
   opacity: 0;
   transform: translate3d(0, 0, 0);
-  /* transition: all 1s; */
+  transition: all 1.5s;
   will-change: transform, opacity;
   top: ${props => (props.letter === 'M' ? '0' : 'inherit')};
   animation: ${props => (props.letter === 'M' ? moveSliceM : moveSliceW)} 1s linear 0.7s 1 forwards;
-  /* &.sliceOut {
-    opacity: 1;
-    transform: ${props =>
-      props.letter === 'M'
-        ? 'translate3d(10px, -28px, 0) rotate(20deg)'
-        : 'translate3d(-10px, 28px, 0) rotate(40deg)'};
-  } */
 `;
 
 const BlueberryTxt = styled.p`
@@ -125,7 +137,7 @@ const BlueberryTxt = styled.p`
   opacity: ${props => (props.sliceClicked ? 0 : 1)};
   margin-bottom: 0;
   margin-top: 30px;
-  animation: ${moveBlueberryText} 3s linear 4s infinite;
+  /* animation: ${moveBlueberryText} 3s linear 4s infinite; */
 `;
 
 const TooMuchPie = styled.h3`
@@ -135,6 +147,7 @@ const TooMuchPie = styled.h3`
   font-weight: 400;
   border-radius: 10px;
   box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12);
+  /* box-shadow: 0 15px 25px hsla(0, 0%, 0%, 0.15), 0 5px 10px hsla(0, 0%, 0%, 0.5); */
   width: 100%;
   opacity: ${props => (props.showMe ? 1 : 0)};
   transition: all 0.7s;
@@ -174,38 +187,10 @@ const LetterPieSlice = ({ letter, counter = {} }) => (
       handlePieClick(e);
     }}
   >
-    <PieImage
-      className="sliceOut"
-      letter={letter}
-      src={letter === 'M' ? pieSlicedM : pieSlicedW}
-      alt="Slice of Pie"
-    />
-    {letter}
+    <PieImage letter={letter} src={letter === 'M' ? pieSlicedM : pieSlicedW} alt="Slice of Pie" />
+    <span>{letter}</span>
   </PieContainer>
 );
-
-// const handlePieClick = e => {
-//   const pieContainer = e.currentTarget;
-//   const slice = pieContainer.querySelector('img');
-//   const seconds = slice.cloneNode(true);
-//   pieContainer.replaceChild(seconds, slice);
-// };
-
-// const LetterPieSlice = ({ letter, counter = {} }) => (
-//   <PieContainer
-//     onClick={e => {
-//       counter.setCount(counter.count + 1);
-//       handlePieClick(e);
-//     }}
-//   >
-//     <PieImage
-//       letter={letter}
-//       src={letter === 'M' ? pieSlicedM : pieSlicedW}
-//       alt="Slice of Pie"
-//     />
-//     {letter}
-//   </PieContainer>
-// );
 
 const SliceHero = () => {
   const [count, setCount] = useState(0);
@@ -219,11 +204,11 @@ const SliceHero = () => {
         eb
       </HeroStyled>
       <div>
-        <BlueberryTxt sliceClicked={count >= 1}>Mmm, Blueberry Pie!</BlueberryTxt>
+        {/* <BlueberryTxt sliceClicked={count >= 1}>Mmm, Blueberry Pie!</BlueberryTxt> */}
         <TooMuchPie showMe={count >= 5}>
           Slow down, you don't want a belly ache
           <button type="button" onClick={() => setCount(0)} id="close">
-            close &#10006;
+            close <span style={{ color: 'inherit' }}>&#10006;</span>
           </button>
         </TooMuchPie>
       </div>
@@ -232,7 +217,8 @@ const SliceHero = () => {
 };
 
 LetterPieSlice.propTypes = {
-  letter: PropTypes.string.isRequired
+  letter: PropTypes.string.isRequired,
+  counter: PropTypes.object.isRequired
 };
 
 export default SliceHero;
