@@ -28,6 +28,7 @@ const ProjectCard = styled.article`
   display: flex;
   max-width: 600px;
   width: 100%;
+  border-top: 3px solid #92aed0;
   /* height: 179px; */
   ${above.small_1`
     height: auto;

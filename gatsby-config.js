@@ -27,10 +27,10 @@ module.exports = {
         name: `Mike Raguso Website`,
         short_name: `MR_Site`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#f1f5f8`,
+        theme_color: `#1663c7`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
+        icon: `src/images/MR-icon2.png` // This path is relative to the root of the site.
       }
     },
     {

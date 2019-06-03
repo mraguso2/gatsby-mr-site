@@ -155,7 +155,7 @@ const TooMuchPie = styled.h3`
   margin: auto;
   max-width: 400px;
   position: relative;
-  #close {
+  .close {
     position: absolute;
     top: 0px;
     right: 0;
@@ -207,7 +207,7 @@ const SliceHero = () => {
         {/* <BlueberryTxt sliceClicked={count >= 1}>Mmm, Blueberry Pie!</BlueberryTxt> */}
         <TooMuchPie showMe={count >= 5}>
           Slow down, you don't want a belly ache
-          <button type="button" onClick={() => setCount(0)} id="close">
+          <button type="button" onClick={() => setCount(0)} className="close">
             close <span style={{ color: 'inherit' }}>&#10006;</span>
           </button>
         </TooMuchPie>

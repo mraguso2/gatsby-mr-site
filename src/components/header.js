@@ -56,7 +56,7 @@ const NavStyled = styled.ul`
 
     a {
       text-decoration: none;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       ${above.med_1`
         font-size: 1.2rem;
       `}
@@ -76,6 +76,7 @@ const MyNameText = styled.p`
   margin-bottom: 13px;
   margin-left: 10px;
   width: 40%;
+  font-size: 1.1rem;
 
   ::after {
     content: '';
