@@ -102,24 +102,6 @@ const moveSliceW = keyframes`
   }
 `;
 
-const moveBlueberryText = keyframes`
-  0% {
-    transform: rotate(0deg)
-  }
-  25% {
-    transform: rotate(-5deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  75% {
-    transform: rotate(5deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-`;
-
 const PieImage = styled.img`
   ${fixedMiddle};
   bottom: 0;
@@ -129,15 +111,6 @@ const PieImage = styled.img`
   will-change: transform, opacity;
   top: ${props => (props.letter === 'M' ? '0' : 'inherit')};
   animation: ${props => (props.letter === 'M' ? moveSliceM : moveSliceW)} 1s linear 0.7s 1 forwards;
-`;
-
-const BlueberryTxt = styled.p`
-  text-align: center;
-  transition: all 0.7s;
-  opacity: ${props => (props.sliceClicked ? 0 : 1)};
-  margin-bottom: 0;
-  margin-top: 30px;
-  /* animation: ${moveBlueberryText} 3s linear 4s infinite; */
 `;
 
 const TooMuchPie = styled.h3`
@@ -204,7 +177,6 @@ const SliceHero = () => {
         eb
       </HeroStyled>
       <div>
-        {/* <BlueberryTxt sliceClicked={count >= 1}>Mmm, Blueberry Pie!</BlueberryTxt> */}
         <TooMuchPie showMe={count >= 5}>
           Slow down, you don't want a belly ache
           <button type="button" onClick={() => setCount(0)} className="close">

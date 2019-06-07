@@ -8,7 +8,7 @@ import Projects from '../components/projects';
 import Contact from '../components/contact';
 
 const IndexPage = () => (
-  <Layout>
+  <Layout location="homePage">
     <SEO
       title="Home"
       keywords={[`mike raguso`, `raguso`, `slice of the web`, `portfolio`, `gatsby`]}

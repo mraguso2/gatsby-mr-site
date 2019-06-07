@@ -15,7 +15,7 @@ const LayoutStyled = styled.div`
   min-height: 100vh;
 `;
 
-const Layout = ({ children }) => (
+const Layout = ({ children, location = '' }) => (
   <StaticQuery
     query={graphql`
       query SiteMenuQuery {
@@ -31,9 +31,10 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header menu={data.site.siteMetadata.menu} />
+        <Header location={location} menu={data.site.siteMetadata.menu} />
         <LayoutStyled>
           <main>{children}</main>
+          {console.log(location)}
         </LayoutStyled>
         <Footer />
       </>

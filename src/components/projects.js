@@ -105,7 +105,7 @@ const StyledLink = styled(props => <Link {...props} />)`
 
 const PROJECT_LISTING = graphql`
   query ProjectListQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
           frontmatter {
@@ -123,12 +123,12 @@ const PROJECT_LISTING = graphql`
 const Projects = () => (
   <StaticQuery
     query={PROJECT_LISTING}
-    render={({ allMarkdownRemark }) => (
+    render={({ allMdx }) => (
       <ProjectContainer id="projects">
         <SectionContentStyled>
           <ProjectSectionTitle>Projects</ProjectSectionTitle>
           <ProjectCollection>
-            {allMarkdownRemark.edges.map(({ node }) => (
+            {allMdx.edges.map(({ node }) => (
               <ProjectCard key={node.frontmatter.slug}>
                 <ImageContainer>
                   <ImageIcons

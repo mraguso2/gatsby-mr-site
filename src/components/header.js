@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import logoMR from '../images/logo-MR.svg';
 import { below, above } from '../utilities/breakpoints';
@@ -13,6 +13,13 @@ const LogoStyled = styled.img`
   `}
   ${above.med_1`
     width: 75px;
+  `}
+`;
+
+const pageStripe = css`
+  width: 30%;
+  ${below.small_1`
+    transform: skew(-40deg);
   `}
 `;
 
@@ -31,18 +38,17 @@ const HeaderStyled = styled.header`
   ::before {
     content: '';
     position: absolute;
-    background: #fdfdfd;
     background: #ffffff;
     top: 0;
     bottom: 0;
     width: 40%;
     z-index: -1;
-    transform: skew(15deg);
-    height: 600px;
+    transform: ${props => (props.location === 'homePage' ? 'skew(15deg)' : 'skew(-40deg)')};
+    height: ${props => (props.location === 'homePage' ? '600px' : '104px')};
     max-width: 500px;
     ${below.small_1`
-      transform: skew(10deg);
-    `}
+      transform: skew(10deg)
+    `};
   }
 `;
 
@@ -118,9 +124,9 @@ const Nav = ({ menu }) => (
   </nav>
 );
 
-const Header = ({ menu }) => (
+const Header = ({ menu, location = '' }) => (
   <>
-    <HeaderStyled>
+    <HeaderStyled location={location}>
       <Link to="/">
         <Logo />
       </Link>

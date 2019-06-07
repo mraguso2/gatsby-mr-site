@@ -40,10 +40,11 @@ module.exports = {
         name: 'images'
       }
     },
+    'gatsby-mdx',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/projects`,
+        path: `${__dirname}/src/content/projects`,
         name: 'projects'
       }
     },
