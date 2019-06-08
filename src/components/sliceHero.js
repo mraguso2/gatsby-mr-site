@@ -178,9 +178,9 @@ const SliceHero = () => {
       </HeroStyled>
       <div>
         <TooMuchPie showMe={count >= 5}>
-          Slow down, you don't want a belly ache
+          Slow down, you don't want a belly ache!
           <button type="button" onClick={() => setCount(0)} className="close">
-            close <span style={{ color: 'inherit' }}>&#10006;</span>
+            close <span style={{ color: '#c10d0d' }}>&#10006;</span>
           </button>
         </TooMuchPie>
       </div>

@@ -16,24 +16,46 @@ const LogoStyled = styled.img`
   `}
 `;
 
+const homePageStripe = css`
+  width: 40%;
+  transform: skew(15deg);
+  height: 600px;
+  ${below.small_1`
+    transform: skew(10deg)
+  `};
+`;
+
 const pageStripe = css`
   width: 30%;
+  transform: skew(-40deg);
+  height: 104px;
+  ${above.small_1`
+    height: 68px;
+  `};
+  ${above.med_1`
+    height: 69px;
+  `};
   ${below.small_1`
-    transform: skew(-40deg);
-  `}
+    transform: skew(-50deg);
+    height: 89px;
+  `};
 `;
 
 const HeaderStyled = styled.header`
   display: flex;
   align-items: center;
   max-width: 1150px;
-  margin: auto;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  box-shadow: ${props =>
+    props.location === 'homePage' ? '' : '0px 2px 10px hsla(0, 0%, 0%, 0.05)'};
+  padding-bottom: ${props => (props.location === 'homePage' ? '' : 0)};
   ${below.small_1`
     justify-content: space-between;
-    margin: 5px 5px 0px;
     flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
   `}
   ::before {
     content: '';
@@ -41,14 +63,9 @@ const HeaderStyled = styled.header`
     background: #ffffff;
     top: 0;
     bottom: 0;
-    width: 40%;
     z-index: -1;
-    transform: ${props => (props.location === 'homePage' ? 'skew(15deg)' : 'skew(-40deg)')};
-    height: ${props => (props.location === 'homePage' ? '600px' : '104px')};
     max-width: 500px;
-    ${below.small_1`
-      transform: skew(10deg)
-    `};
+    ${props => (props.location === 'homePage' ? homePageStripe : pageStripe)};
   }
 `;
 
@@ -56,10 +73,13 @@ const NavStyled = styled.ul`
   display: flex;
   list-style: none;
   padding-left: inherit;
-
+  margin-bottom: 0.625rem;
+  ${below.small_1`
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+  `}
   .navItem {
     padding: 5px;
-
     a {
       text-decoration: none;
       font-size: 1.15rem;
@@ -71,19 +91,28 @@ const NavStyled = styled.ul`
 `;
 
 const MyNameText = styled.p`
-  height: 25px;
+  height: 30px;
   background: white;
   padding-left: 10px;
+  padding-bottom: 3px;
   position: relative;
   display: flex;
   align-items: center;
   color: #1663c7;
   align-self: flex-end;
-  margin-bottom: 13px;
+  margin-bottom: 0px;
   margin-left: 10px;
   width: 40%;
   font-size: 1.1rem;
-
+  ${above.med_1`
+      padding-bottom: 0px;
+  `}
+  ${below.small_1`
+    height: 25px;
+    margin: 0 10px 0 0;
+    width: 100%;
+    order: 2;
+  `}
   ::after {
     content: '';
     position: absolute;
@@ -97,17 +126,6 @@ const MyNameText = styled.p`
     -ms-transform: skew(-20deg);
     transform: skew(-20deg);
   }
-  ${below.small_1`
-    margin: 0 10px 20px 0px;
-    width: 100%;
-    order: 2;
-  `}
-  ${above.small_1`
-    margin-bottom: 10px;
-  `}
-  ${above.med_1`
-    margin-bottom: 8px;
-  `}
 `;
 
 const Logo = () => <LogoStyled src={logoMR} alt="logo" />;

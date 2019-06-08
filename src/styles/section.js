@@ -26,13 +26,21 @@ export const SectionTitle = styled.h2`
   font-weight: 400;
   display: inline-block;
   position: relative;
-  font-size: 1.85rem;
+  font-size: 1.9rem;
+  margin-bottom: 1.55rem;
+  a,
+  a:visited {
+    color: ${props => props.color || 'inherit'};
+    text-decoration: none;
+  }
   &::after {
     display: inline-block;
     position: absolute;
     left: 0;
     bottom: -3.5px;
     height: 2px;
+    width: ${props => props.width || ''};
+    background: ${props => props.color || '#102a42'};
     -webkit-transform: rotate(-1deg);
     -webkit-transform: rotate(-1deg);
     -ms-transform: rotate(-1deg);

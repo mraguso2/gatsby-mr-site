@@ -9,13 +9,30 @@ import { SectionContainer, SectionContentStyled, SectionTitle } from '../styles/
 
 const ProjectContainer = styled(SectionContainer)`
   color: ${colors.neutral.black};
+  #featured {
+    letter-spacing: 0.3px;
+    color: #5a687b;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 auto 10px;
+    ${above.med_2`
+      text-align: left;
+      margin-left: 1.75rem;
+      margin-top: 5px
+    `}
+  }
 `;
 
 const ProjectSectionTitle = styled(SectionTitle)`
   margin-top: 30px;
-  &::after {
-    width: 101px;
-    background: ${colors.neutral.black};
+  span {
+    color: #1663c7;
+    font-size: 0.85rem;
+    font-style: italic;
+    background: linear-gradient(180deg, #f1f5f8, #d4e1f1);
+    padding: 3px;
+    border-radius: 5px;
   }
 `;
 
@@ -126,7 +143,12 @@ const Projects = () => (
     render={({ allMdx }) => (
       <ProjectContainer id="projects">
         <SectionContentStyled>
-          <ProjectSectionTitle>Projects</ProjectSectionTitle>
+          <ProjectSectionTitle width="105px" color="#102a42">
+            <a href="/projects">
+              Projects <span>~ Show All</span>
+            </a>
+          </ProjectSectionTitle>
+          <p id="featured">FEATURED</p>
           <ProjectCollection>
             {allMdx.edges.map(({ node }) => (
               <ProjectCard key={node.frontmatter.slug}>

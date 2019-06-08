@@ -18,17 +18,26 @@ const AboutContainer = styled(FullWidthContainer)`
 `;
 
 const AboutContentStyled = styled(SectionContentStyled)`
+  margin-bottom: 10px;
   & .aboutMeSummary {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-`;
-
-const AboutTitle = styled(SectionTitle)`
-  &::after {
-    width: 121px;
-    background: #f1f5f8;
+  & .linkToMore {
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #064495;
+    background: #f4f8fd;
+    padding: 4px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    display: block;
+    width: 125px;
+    text-align: center;
+    margin: 30px auto 0;
+    text-decoration: none;
+    box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.12);
   }
 `;
 
@@ -95,7 +104,9 @@ const MiniBioText = styled.span`
 const AboutMe = () => (
   <AboutContainer id="aboutMe">
     <AboutContentStyled>
-      <AboutTitle>About Me</AboutTitle>
+      {/* <SectionTitle width="125px" color="#f1f5f8">
+        <a href="/about">About Me</a>
+      </SectionTitle> */}
       <div>
         <div className="aboutMeSummary">
           <ImageContainer>
@@ -111,11 +122,14 @@ const AboutMe = () => (
         <MiniBioContainer>
           <MiniBioText>
             I love tech and building things on the web. Luckily I enjoy solving problems since I
-            regularly create new ones by breaking things. I enjoy sharing my knowledge and
-            attempting to teach complex topics in an easy to understand concept.
+            regularly create new ones by breaking things. I enjoy teaching and attempting to explain
+            complex topics in an easy to understand concept.
           </MiniBioText>
         </MiniBioContainer>
       </div>
+      <a className="linkToMore" href="/about">
+        TELL ME MORE
+      </a>
     </AboutContentStyled>
   </AboutContainer>
 );
