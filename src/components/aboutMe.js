@@ -104,9 +104,6 @@ const MiniBioText = styled.span`
 const AboutMe = () => (
   <AboutContainer id="aboutMe">
     <AboutContentStyled>
-      {/* <SectionTitle width="125px" color="#f1f5f8">
-        <a href="/about">About Me</a>
-      </SectionTitle> */}
       <div>
         <div className="aboutMeSummary">
           <ImageContainer>

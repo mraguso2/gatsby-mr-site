@@ -103,11 +103,11 @@ const ListenButton = styled.button`
   padding: 5px 15px 5px 5px;
   width: 70px;
   ::after {
-      content: url(${playButton});
-      width: 15px;
-      position: absolute;
-      right: 5px;
-    }
+    content: url(${playButton});
+    width: 15px;
+    position: absolute;
+    right: 5px;
+  }
 `;
 
 const ChanceSource = styled.div`
@@ -153,7 +153,11 @@ const TrimmedTakeAChance = () => (
         Artist: ABBA <br />
         Song: Take A Chance on Me <br />
         Source:{' '}
-        <a href="https://www.youtube.com/watch?v=-crgQGdpZR0" target="_blank">
+        <a
+          href="https://www.youtube.com/watch?v=-crgQGdpZR0"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           YouTube Link
         </a>
       </p>
@@ -189,7 +193,7 @@ const Contact = () => {
           <p>
             Looking to hire? <br />
             <span>Take a Chance on Me...</span>
-            <br/>
+            <br />
             <ListenButton onClick={() => toggleVid(1)} type="button">
               Listen
             </ListenButton>

@@ -34,7 +34,6 @@ const Layout = ({ children, location = '' }) => (
         <Header location={location} menu={data.site.siteMetadata.menu} />
         <LayoutStyled>
           <main>{children}</main>
-          {console.log(location)}
         </LayoutStyled>
         <Footer />
       </>
@@ -43,7 +42,12 @@ const Layout = ({ children, location = '' }) => (
 );
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  location: PropTypes.string
+};
+
+Layout.defaultProps = {
+  location: ''
 };
 
 export default Layout;

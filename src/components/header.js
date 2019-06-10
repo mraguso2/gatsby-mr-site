@@ -42,30 +42,33 @@ const pageStripe = css`
 `;
 
 const HeaderStyled = styled.header`
-  display: flex;
-  align-items: center;
-  max-width: 1150px;
-  padding: 10px;
-  margin-bottom: 20px;
+  width: 100%;
   box-shadow: ${props =>
     props.location === 'homePage' ? '' : '0px 2px 10px hsla(0, 0%, 0%, 0.05)'};
-  padding-bottom: ${props => (props.location === 'homePage' ? '' : 0)};
-  ${below.small_1`
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-  `}
-  ::before {
-    content: '';
-    position: absolute;
-    background: #ffffff;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-    max-width: 500px;
-    ${props => (props.location === 'homePage' ? homePageStripe : pageStripe)};
+  margin-bottom: ${props => (props.location === 'homePage' ? '80px' : '15px')};
+  .inner {
+    display: flex;
+    align-items: center;
+    max-width: 1150px;
+    padding: 10px;
+    margin: auto;
+    padding-bottom: ${props => (props.location === 'homePage' ? '' : 0)};
+    ${below.small_1`
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding-left: 5px;
+      padding-right: 5px;
+    `}
+    ::before {
+      content: '';
+      position: absolute;
+      background: #ffffff;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+      max-width: 500px;
+      ${props => (props.location === 'homePage' ? homePageStripe : pageStripe)};
+    }
   }
 `;
 
@@ -145,11 +148,13 @@ const Nav = ({ menu }) => (
 const Header = ({ menu, location = '' }) => (
   <>
     <HeaderStyled location={location}>
-      <Link to="/">
-        <Logo />
-      </Link>
-      <MyNameText>Mike Raguso</MyNameText>
-      <Nav menu={menu} />
+      <div className="inner">
+        <Link to="/">
+          <Logo />
+        </Link>
+        <MyNameText>Mike Raguso</MyNameText>
+        <Nav menu={menu} />
+      </div>
     </HeaderStyled>
   </>
 );
@@ -159,7 +164,12 @@ Nav.propTypes = {
 };
 
 Header.propTypes = {
-  menu: PropTypes.array.isRequired
+  menu: PropTypes.array.isRequired,
+  location: PropTypes.string
+};
+
+Header.defaultProps = {
+  location: ''
 };
 
 export default Header;
