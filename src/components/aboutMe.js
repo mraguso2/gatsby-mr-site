@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Image from './image';
 import colors from '../utilities/colors';
-import { above, below } from '../utilities/breakpoints';
-import { FullWidthContainer, SectionContentStyled, SectionTitle } from '../styles/section';
+import { above } from '../utilities/breakpoints';
+import { FullWidthContainer, SectionContentStyled } from '../styles/section';
+import MyFace from './myFace';
 
 const AboutContainer = styled(FullWidthContainer)`
   top: 10px;
@@ -38,25 +38,6 @@ const AboutContentStyled = styled(SectionContentStyled)`
     margin: 30px auto 0;
     text-decoration: none;
     box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.12);
-  }
-`;
-
-const ImageContainer = styled.div`
-  width: 100%;
-  max-width: 130px;
-  ${below.small_0`
-    max-width: 110px;
-  `}
-  ${above.small_1`
-    max-width: 150px;
-  `}
-  ${above.med_1`
-    max-width: 190px;
-  `}
-  & p {
-    text-align: center;
-    margin-top: 5px;
-    font-size: 0.9rem;
   }
 `;
 
@@ -106,10 +87,7 @@ const AboutMe = () => (
     <AboutContentStyled>
       <div>
         <div className="aboutMeSummary">
-          <ImageContainer>
-            <Image style={{ borderRadius: '50%', border: '3px solid hsl(214, 53%, 93%)' }} />
-            <p>^ That's Me</p>
-          </ImageContainer>
+          <MyFace outlineColor="hsl(214, 53%, 93%)" />
           <div>
             <SentenceDescription>
               I am a web builder, problem solver, problem maker, teacher and overall nerd

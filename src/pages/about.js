@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import BreadCrumbs from '../components/breadcrumbs';
 import AboutImage from '../components/imageAbout';
 import { SectionTitle } from '../styles/section';
-import { above } from '../utilities/breakpoints';
+import { below, above } from '../utilities/breakpoints';
+import MyFace from '../components/myFace';
+import camera from '../images/heroicon-camera-sm.svg';
+import iconCheveron from '../images/icon-cheveron-right-circle.svg';
 
 const AboutTitle = styled(SectionTitle)`
   background: white;
@@ -22,7 +25,7 @@ const AboutTitle = styled(SectionTitle)`
 const Hero = styled.div`
   position: relative;
   margin-top: 5px;
-  height: 200px;
+  height: 250px;
   ::before {
     content: '';
     position: absolute;
@@ -59,6 +62,110 @@ const Greeting = styled.h3`
   border-radius: 8px;
 `;
 
+const PicGroup = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+  max-width: 350px;
+  position: relative;
+  ${above.med_1`
+    max-width: 420px;
+  `}
+  ::after {
+    content: '';
+    position: absolute;
+    background: #ffffff;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    max-width: 500px;
+    width: 375px;
+    transform: skew(40deg);
+    height: 110px;
+    margin: auto;
+    left: -115px;
+  }
+`;
+
+const CameraGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  p {
+    text-align: center;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  img {
+    width: 50px;
+    ${above.small_1`
+      width: 50px;
+    `}
+  }
+`;
+
+const Skills = styled.section`
+  ul {
+    list-style: none;
+  }
+  li {
+    padding-bottom: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    ::before {
+      content: url(${iconCheveron});
+      width: 25px;
+      position: relative;
+      display: inline-block;
+      margin-right: 7px;
+      top: 1.5px;
+    }
+  }
+`;
+
+const Bio = styled.section`
+  line-height: 1.6;
+  max-width: 500px;
+  margin: auto;
+  p {
+    text-indent: 40px;
+    text-align: left;
+  }
+`;
+
+const skills = [
+  'JavaScript',
+  'CSS3',
+  'HTML5',
+  'ReactJS',
+  'GatsbyJS',
+  'WordPress',
+  'UX/UI',
+  'Express',
+  'NodeJS',
+  'MongoDB',
+  'Firebase',
+  'SQL',
+  'VBA',
+  'Tableau',
+  'Lean Six Sigma',
+  'Data Analytics'
+];
+
+const myFaceStyles = {
+  borderRadius: '3px',
+  transform: 'rotate(-5deg)',
+  borderBottom: '30px solid white',
+  borderLeft: '10px solid white',
+  borderTop: '10px solid white',
+  borderRight: '10px solid white',
+  boxShadow: '0px 0px 10px rgba(0,0,0,0.2)'
+};
+
 const AboutPage = () => (
   <Layout>
     <SEO
@@ -75,6 +182,44 @@ const AboutPage = () => (
       </Greeting>
     </Hero>
     <AboutTitle>About Me</AboutTitle>
+    <PicGroup>
+      <CameraGroup>
+        <img src={camera} alt="camera" />
+        <p>Cheeese!</p>
+      </CameraGroup>
+      <MyFace style={myFaceStyles} noText outlineColor="hsl(209,61%,16%)" />
+    </PicGroup>
+    <Skills>
+      <article>
+        <ul>
+          {skills.map(skill => (
+            <li key={skill}>{skill}</li>
+          ))}
+        </ul>
+      </article>
+    </Skills>
+    <Bio>
+      <div>
+        <p>
+          I am a full stack web developer, designer and industrial & systems engineer. I love
+          technology and building web products. I like to spend time developing web applications,
+          websites, simple demos, fun projects and <em>“the-next-big-thing”</em>. Evaluating and
+          designing user experiences has become one of my passions. I am fascinated with human
+          psychology and how a design, interaction or perception can influence a user’s experience.
+        </p>
+        <p>
+          I have experience in many industries from healthcare to manufacturing and worked on
+          various types of projects from performance improvement to excel VBA automation to full web
+          applications. I like to teach what I know to others. I feel a sense of accomplishment when
+          I am able to help someone understand a new or challenging concept.
+        </p>
+        <p>
+          Besides nerding – I love being outside, exploring places I’ve never been, eating at places
+          I’ve never been, eating just in general, going to local breweries, learning the next
+          useless fun fact.
+        </p>
+      </div>
+    </Bio>
   </Layout>
 );
 

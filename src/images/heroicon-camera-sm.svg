@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" class="heroicon-camera heroicon heroicon-sm">
+    <path class="heroicon-camera-top heroicon-component-accent heroicon-component-fill" fill="#b7ddff" d="M11 17h7.83l.58-.59L24.83 11h16.34l5.42 5.41.58.59H58v6H41.18a14.96 14.96 0 0 0-22.36 0h-5.17a3.98 3.98 0 0 0-5.3 0H2v-6h9z"></path>
+    <path class="heroicon-camera-body heroicon-component-fill" fill="#FFFFFF" d="M14.87 25h3.64a14 14 0 1 0 22.98 0H58v24H2V25h5.13a4 4 0 0 1 7.74 0z"></path>
+    <path class="heroicon-camera-buttons heroicon-component-fill" fill="#FFFFFF" d="M3 13h6v3H3v-3zm48 0h6v3h-6v-3z"></path>
+    <path class="heroicon-camera-lens-barrel heroicon-component-accent heroicon-component-fill" fill="#b7ddff" d="M43 33a13 13 0 1 1-26 0 13 13 0 0 1 26 0z"></path>
+    <path class="heroicon-camera-lens-glass heroicon-component-fill" fill="#FFFFFF" d="M37 33a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"></path>
+    <path class="heroicon-shadows" fill="#000000" d="M15.03 34a15 15 0 0 0 29.94 0 15 15 0 1 1-29.93 0zm4.07.5a11 11 0 1 1 21.8 0 11 11 0 0 0-21.8 0z" opacity=".2"></path>
+    <path class="heroicon-outline" fill="#4A4A4A" fill-rule="nonzero" d="M18 15l6-6h18l6 6h2v-3h8v3h2v36H0V15h2v-3h8v3h1v-1h5v1h2zm-7 2H2v6h6.35a3.98 3.98 0 0 1 5.3 0h5.17a14.96 14.96 0 0 1 22.36 0H58v-6H47.17l-.58-.59L41.17 11H24.83l-5.42 5.41-.58.59H11zm-9 8v24h2V25H2zm3 0v24h50V25H42.7a14.93 14.93 0 0 1-.8 17.14 3 3 0 1 1-3.83 3.5A15 15 0 0 1 17.31 25l-2.44.01A4.01 4.01 0 0 1 11 30a4 4 0 0 1-3.87-5H5zm51 0v24h2V25h-2zm-4-10h4v-1h-4v1zM8 14H4v1h4v-1zm3 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm31 17a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm1-12a13 13 0 1 0-26 0 13 13 0 0 0 26 0zm1-15a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm-2 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-1 14a11 11 0 1 1-22 0 11 11 0 0 1 22 0zM30 43a10 10 0 1 0 0-20 10 10 0 0 0 0 20zm0-2a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm6-8a6 6 0 1 0-12 0 6 6 0 0 0 12 0z"></path>
+</svg>
