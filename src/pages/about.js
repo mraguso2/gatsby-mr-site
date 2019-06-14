@@ -69,6 +69,8 @@ const PicGroup = styled.div`
   margin: auto;
   max-width: 350px;
   position: relative;
+  margin-top: 30px;
+  margin-bottom: 80px;
   ${above.med_1`
     max-width: 420px;
   `}
@@ -108,14 +110,72 @@ const CameraGroup = styled.div`
 `;
 
 const Skills = styled.section`
+  margin-bottom: 35px;
+  article {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    ${below.small_0`
+      justify-content: flex-start;
+    `}
+  }
   ul {
     list-style: none;
+    ${below.small_1`
+      padding-left: 30px;
+    `}
+  }
+  h3 {
+    text-align: center;
+    /* border-top: 1px solid #c7d0de;
+    border-bottom: 1px solid #c7d0de; */
+    color: hsl(274, 87%, 31%);
+    font-weight: 400;
+    position: relative;
+    margin-bottom: 32px;
+    ::after {
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      bottom: -3.5px;
+      height: 1px;
+      width: 100%;
+      background-image: linear-gradient(
+        to right,
+        hsl(210, 36%, 96%),
+        hsl(264, 96%, 70%) 30%,
+        hsl(273, 80%, 49%) 50%,
+        hsl(264, 96%, 70%) 70%,
+        hsl(210, 36%, 96%)
+      );
+      content: '';
+    }
+    ::before {
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: -3.5px;
+      height: 1px;
+      width: 100%;
+      background-image: linear-gradient(
+        to right,
+        hsl(210, 36%, 96%),
+        hsl(264, 96%, 70%) 30%,
+        hsl(273, 80%, 49%) 50%,
+        hsl(264, 96%, 70%) 70%,
+        hsl(210, 36%, 96%)
+      );
+      content: '';
+    }
   }
   li {
     padding-bottom: 10px;
     position: relative;
     display: flex;
     align-items: center;
+    ${below.small_1`
+      font-size: 0.95rem;
+    `}
     ::before {
       content: url(${iconCheveron});
       width: 25px;
@@ -125,6 +185,28 @@ const Skills = styled.section`
       top: 1.5px;
     }
   }
+`;
+
+const ListGroup = styled.div`
+  min-width: 33%;
+  margin-bottom: 10px;
+  ${below.small_0`
+    width: 100%;
+  `}
+`;
+
+const SkillsGroupTitle = styled.p`
+  letter-spacing: 0.3px;
+  color: #5a687b;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 auto 10px;
+  ${above.med_2`
+    text-align: left;
+    margin-left: 1.75rem;
+    margin-top: 5px
+  `}
 `;
 
 const Bio = styled.section`
@@ -137,24 +219,11 @@ const Bio = styled.section`
   }
 `;
 
-const skills = [
-  'JavaScript',
-  'CSS3',
-  'HTML5',
-  'ReactJS',
-  'GatsbyJS',
-  'WordPress',
-  'UX/UI',
-  'Express',
-  'NodeJS',
-  'MongoDB',
-  'Firebase',
-  'SQL',
-  'VBA',
-  'Tableau',
-  'Lean Six Sigma',
-  'Data Analytics'
-];
+const skills = {
+  frontend: ['JavaScript', 'CSS3', 'HTML5', 'ReactJS', 'GatsbyJS', 'WordPress', 'UX/UI'],
+  backend: ['SQL', 'Express', 'NodeJS', 'MongoDB', 'Firebase', 'Microsoft Access'],
+  general: ['Lean Six Sigma', 'Excel VBA', 'Instructor', 'Tableau', 'Data Analytics']
+};
 
 const myFaceStyles = {
   borderRadius: '3px',
@@ -190,33 +259,57 @@ const AboutPage = () => (
       <MyFace style={myFaceStyles} noText outlineColor="hsl(209,61%,16%)" />
     </PicGroup>
     <Skills>
+      <h3>Skills</h3>
       <article>
-        <ul>
-          {skills.map(skill => (
-            <li key={skill}>{skill}</li>
-          ))}
-        </ul>
+        <ListGroup>
+          <SkillsGroupTitle>FRONTEND</SkillsGroupTitle>
+          <ul>
+            {skills.frontend.map(skill => (
+              <li key={skill}>{skill}</li>
+            ))}
+          </ul>
+        </ListGroup>
+        <ListGroup>
+          <SkillsGroupTitle>BACKEND</SkillsGroupTitle>
+          <ul>
+            {skills.backend.map(skill => (
+              <li key={skill}>{skill}</li>
+            ))}
+          </ul>
+        </ListGroup>
+        <ListGroup>
+          <SkillsGroupTitle>GENERAL</SkillsGroupTitle>
+          <ul>
+            {skills.general.map(skill => (
+              <li key={skill}>{skill}</li>
+            ))}
+          </ul>
+        </ListGroup>
       </article>
     </Skills>
     <Bio>
       <div>
+        <h4>Bio</h4>
         <p>
           I am a full stack web developer, designer and industrial & systems engineer. I love
-          technology and building web products. I like to spend time developing web applications,
-          websites, simple demos, fun projects and <em>“the-next-big-thing”</em>. Evaluating and
-          designing user experiences has become one of my passions. I am fascinated with human
-          psychology and how a design, interaction or perception can influence a user’s experience.
+          technology, building web products and solving problems. My free time is spent developing
+          web applications, websites, simple demos, fun projects and <em>“the-next-big-thing”</em>.
+          Evaluating and designing user experiences has become one of my passions. I am fascinated
+          with human psychology and how a design, interaction or perception can influence a user’s
+          experience.
         </p>
+        <h4>Experience</h4>
         <p>
           I have experience in many industries from healthcare to manufacturing and worked on
           various types of projects from performance improvement to excel VBA automation to full web
           applications. I like to teach what I know to others. I feel a sense of accomplishment when
           I am able to help someone understand a new or challenging concept.
         </p>
+        <h4>Interests</h4>
         <p>
-          Besides nerding – I love being outside, exploring places I’ve never been, eating at places
-          I’ve never been, eating just in general, going to local breweries, learning the next
-          useless fun fact.
+          Besides <em>nerding</em> – I love being outside, exploring places I’ve never been, eating
+          at places I’ve never been, eating just in general, going to local breweries, garage sales
+          and learning the next useless fun fact.
         </p>
       </div>
     </Bio>
