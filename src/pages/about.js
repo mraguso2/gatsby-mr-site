@@ -188,7 +188,6 @@ const Skills = styled.section`
 `;
 
 const ListGroup = styled.div`
-  min-width: 33%;
   margin-bottom: 10px;
   ${below.small_0`
     width: 100%;
@@ -216,6 +215,11 @@ const Bio = styled.section`
   p {
     text-indent: 40px;
     text-align: left;
+  }
+  h3 {
+    color: #5a687b;
+    font-weight: 500;
+    margin: 0 auto 10px;
   }
 `;
 
@@ -245,7 +249,7 @@ const AboutPage = () => (
     <Hero>
       <AboutImage style={{ height: '100%' }} />
       <Greeting>
-        Hi my <br />
+        Hi, my <br />
         name is <br />
         Mike Raguso
       </Greeting>
@@ -289,27 +293,25 @@ const AboutPage = () => (
     </Skills>
     <Bio>
       <div>
-        <h4>Bio</h4>
+        <h3>My Bio</h3>
         <p>
           I am a full stack web developer, designer and industrial & systems engineer. I love
-          technology, building web products and solving problems. My free time is spent developing
-          web applications, websites, simple demos, fun projects and <em>“the-next-big-thing”</em>.
-          Evaluating and designing user experiences has become one of my passions. I am fascinated
-          with human psychology and how a design, interaction or perception can influence a user’s
-          experience.
+          technology, building web products and solving problems. Evaluating and designing user
+          experiences has become one of my passions. I am fascinated with how a design, interaction
+          or perception can influence a user’s experience. Typically I can be caught working on web
+          applications, websites, simple demos, fun projects and <em>“the-next-big-thing”</em>.
         </p>
-        <h4>Experience</h4>
         <p>
-          I have experience in many industries from healthcare to manufacturing and worked on
-          various types of projects from performance improvement to excel VBA automation to full web
-          applications. I like to teach what I know to others. I feel a sense of accomplishment when
-          I am able to help someone understand a new or challenging concept.
+          I have been lucky to work with various industries from simple to complex projects. From
+          static websites to dynamic web applications to complex VBA excel solutions I have been
+          able to strengthen my knowledge base. I like to teach what I know to others. Successfully
+          helping someone understand a new or challenging concept provides me with a sense of
+          accomplishment.
         </p>
-        <h4>Interests</h4>
         <p>
-          Besides <em>nerding</em> – I love being outside, exploring places I’ve never been, eating
-          at places I’ve never been, eating just in general, going to local breweries, garage sales
-          and learning the next useless fun fact.
+          Besides <em>nerding out</em> – I love being outside, exploring places I’ve never been,
+          eating at places I’ve never been, eating just in general, going to local breweries, garage
+          sales and learning the next useless fun fact.
         </p>
       </div>
     </Bio>
