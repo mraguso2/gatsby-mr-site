@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { above } from '../utilities/breakpoints';
 
 export const SectionContainer = styled.section`
   margin-top: 30px;
@@ -47,4 +48,59 @@ export const SectionTitle = styled.h2`
     transform: rotate(-3deg);
     content: '';
   }
+`;
+
+export const AboutTitle = styled(SectionTitle)`
+  background: white;
+  border-radius: 10px;
+  padding: 8px;
+  position: relative;
+  top: -20px;
+  left: 15px;
+  box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12);
+`;
+
+const aboutHero = css`
+  height: 250px;
+  ::after {
+    background: linear-gradient(180deg, hsla(0, 0%, 0%, 0.15) 80%, hsla(0, 0%, 0%, 0.55));
+  }
+  ${above.med_1`
+    height: 300px;
+  `}
+`;
+
+const projectsHero = css`
+  height: 200px;
+  ::after {
+    background: linear-gradient(180deg, hsla(214, 79%, 44%, 0.15) 80%, hsl(214, 40%, 69%));
+  }
+  ${above.med_1`
+    height: 275px;
+  `}
+`;
+
+export const Hero = styled.div`
+  position: relative;
+  margin-top: 5px;
+  ::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #92aed0;
+  }
+  ::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, hsla(0, 0%, 0%, 0.15) 80%, hsla(0, 0%, 0%, 0.55));
+  }
+  ${props => (props.about ? aboutHero : '')};
+  ${props => (props.projects ? projectsHero : '')};
 `;

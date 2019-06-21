@@ -6,48 +6,11 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import BreadCrumbs from '../components/breadcrumbs';
 import AboutImage from '../components/imageAbout';
-import { SectionTitle } from '../styles/section';
+import { Hero, AboutTitle } from '../styles/section';
 import { below, above } from '../utilities/breakpoints';
 import MyFace from '../components/myFace';
 import camera from '../images/heroicon-camera-sm.svg';
 import iconCheveron from '../images/icon-cheveron-right-circle.svg';
-
-const AboutTitle = styled(SectionTitle)`
-  background: white;
-  border-radius: 10px;
-  padding: 8px;
-  position: relative;
-  top: -20px;
-  left: 15px;
-  box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12);
-`;
-
-const Hero = styled.div`
-  position: relative;
-  margin-top: 5px;
-  height: 250px;
-  ::before {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #92aed0;
-  }
-  ::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, hsla(0, 0%, 0%, 0.15) 80%, hsla(0, 0%, 0%, 0.55));
-  }
-  ${above.med_1`
-    height: 300px;
-  `}
-`;
 
 const Greeting = styled.h3`
   position: absolute;
@@ -246,7 +209,7 @@ const AboutPage = () => (
       keywords={[`mike raguso`, `raguso`, `slice of the web`, `portfolio`, `gatsby`]}
     />
     <BreadCrumbs home single />
-    <Hero>
+    <Hero about>
       <AboutImage style={{ height: '100%' }} />
       <Greeting>
         Hi, my <br />

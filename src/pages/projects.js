@@ -3,16 +3,22 @@ import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import BreadCrumbs from '../components/breadcrumbs';
+import { Hero, AboutTitle } from '../styles/section';
+import ProjectImage from '../components/imageProject';
 
-const IndexPage = () => (
+const ProjectsPage = () => (
   <Layout>
     <SEO
       title="About Me"
       keywords={[`mike raguso`, `raguso`, `slice of the web`, `portfolio`, `gatsby`]}
     />
-    <h1>Yeah I'm working on it</h1>
-    <Link to="/page-2/">Go to page 2</Link>
+    <BreadCrumbs home single />
+    <Hero projects>
+      <ProjectImage style={{ height: '100%' }} />
+    </Hero>
+    <AboutTitle>Projects</AboutTitle>
   </Layout>
 );
 
-export default IndexPage;
+export default ProjectsPage;
