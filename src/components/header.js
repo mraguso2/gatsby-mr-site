@@ -30,22 +30,21 @@ const pageStripe = css`
   transform: skew(-40deg);
   height: 104px;
   ${above.small_1`
-    height: 68px;
-  `};
-  ${above.med_1`
-    height: 69px;
+    height: 75px;
   `};
   ${below.small_1`
     transform: skew(-50deg);
-    height: 89px;
+    height: 94px;
   `};
 `;
 
 const HeaderStyled = styled.header`
   width: 100%;
+  position: relative;
   box-shadow: ${props =>
     props.location === 'homePage' ? '' : '0px 2px 10px hsla(0, 0%, 0%, 0.05)'};
   margin-bottom: ${props => (props.location === 'homePage' ? '80px' : '15px')};
+  overflow-y: ${props => (props.location === 'homePage' ? 'visible' : 'hidden')};
   .inner {
     display: flex;
     align-items: center;
