@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
+
 import { above } from '../utilities/breakpoints';
+import envelope from '../images/envelope.svg';
 
 export const SectionContainer = styled.section`
   margin-top: 30px;
@@ -50,7 +52,7 @@ export const SectionTitle = styled.h2`
   }
 `;
 
-export const AboutTitle = styled(SectionTitle)`
+export const HeroTitle = styled(SectionTitle)`
   background: white;
   border-radius: 10px;
   padding: 8px;
@@ -73,7 +75,7 @@ const aboutHero = css`
 const projectsHero = css`
   height: 200px;
   ::after {
-    background: linear-gradient(180deg, hsla(214, 79%, 44%, 0.15) 80%, hsl(214, 40%, 69%));
+    background: linear-gradient(180deg, hsla(214, 79%, 44%, 0.15) 80%, hsla(214, 79%, 44%, 0.2));
   }
   ${above.med_1`
     height: 275px;
@@ -101,6 +103,36 @@ export const Hero = styled.div`
     height: 100%;
     background: linear-gradient(180deg, hsla(0, 0%, 0%, 0.15) 80%, hsla(0, 0%, 0%, 0.55));
   }
-  ${props => (props.about ? aboutHero : '')};
-  ${props => (props.projects ? projectsHero : '')};
+  ${props => (props['data-hero'] === 'about' ? aboutHero : '')};
+  ${props => (props['data-hero'] === 'projects' ? projectsHero : '')};
+`;
+
+const emailContactPage = css`
+  margin: 1rem auto;
+  width: 261px;
+  background: white;
+  ::before {
+    width: 19px;
+  }
+`;
+
+export const MyEmail = styled.a`
+  width: ${props => props.width || '215px'};
+  display: block;
+  text-align: center;
+  padding: 8px 8px 8px 30px;
+  color: #002a61;
+  background: #e4ecf7;
+  text-decoration: none;
+  border-radius: 10px;
+  position: relative;
+  margin: auto;
+  ::before {
+    content: url(${envelope});
+    width: 15px;
+    position: absolute;
+    left: 8px;
+    top: 11px;
+  }
+  ${props => (props['data-page'] === 'contact' ? emailContactPage : '')}
 `;

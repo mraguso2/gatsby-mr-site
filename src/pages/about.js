@@ -6,7 +6,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import BreadCrumbs from '../components/breadcrumbs';
 import AboutImage from '../components/imageAbout';
-import { Hero, AboutTitle } from '../styles/section';
+import { Hero, HeroTitle } from '../styles/section';
 import { below, above } from '../utilities/breakpoints';
 import MyFace from '../components/myFace';
 import camera from '../images/heroicon-camera-sm.svg';
@@ -208,8 +208,8 @@ const AboutPage = () => (
       title="About Me"
       keywords={[`mike raguso`, `raguso`, `slice of the web`, `portfolio`, `gatsby`]}
     />
-    <BreadCrumbs home single />
-    <Hero about>
+    <BreadCrumbs single />
+    <Hero data-hero="about">
       <AboutImage style={{ height: '100%' }} />
       <Greeting>
         Hi, my <br />
@@ -217,7 +217,7 @@ const AboutPage = () => (
         Mike Raguso
       </Greeting>
     </Hero>
-    <AboutTitle>About Me</AboutTitle>
+    <HeroTitle>About Me</HeroTitle>
     <PicGroup>
       <CameraGroup>
         <img src={camera} alt="camera" />

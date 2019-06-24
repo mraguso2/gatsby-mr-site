@@ -4,20 +4,20 @@ import { Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import BreadCrumbs from '../components/breadcrumbs';
-import { Hero, AboutTitle } from '../styles/section';
+import { Hero, HeroTitle } from '../styles/section';
 import ProjectImage from '../components/imageProject';
 
 const ProjectsPage = () => (
   <Layout>
     <SEO
-      title="About Me"
-      keywords={[`mike raguso`, `raguso`, `slice of the web`, `portfolio`, `gatsby`]}
+      title="Projects"
+      keywords={[`mike raguso`, `raguso`, `slice of the web`, `portfolio`, `gatsby`, 'projects']}
     />
-    <BreadCrumbs home single />
-    <Hero projects>
+    <BreadCrumbs single />
+    <Hero data-hero="projects">
       <ProjectImage style={{ height: '100%' }} />
     </Hero>
-    <AboutTitle>Projects</AboutTitle>
+    <HeroTitle>Projects</HeroTitle>
   </Layout>
 );
 

@@ -3,12 +3,13 @@ import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 
 import Layout from './layout';
+import BreadCrumbs from './breadcrumbs';
 
-function ProjectTemplate(props) {
-  const { mdx } = props.data;
-  const { location } = props;
+function ProjectTemplate({ data, pageLocation }) {
+  const { mdx } = data;
   return (
-    <Layout location={location}>
+    <Layout pageLocation={pageLocation}>
+      <BreadCrumbs projects />
       <h1>{mdx.frontmatter.title}</h1>
       <MDXRenderer>{mdx.code.body}</MDXRenderer>
     </Layout>

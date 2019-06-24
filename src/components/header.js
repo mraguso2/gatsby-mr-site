@@ -42,16 +42,16 @@ const HeaderStyled = styled.header`
   width: 100%;
   position: relative;
   box-shadow: ${props =>
-    props.location === 'homePage' ? '' : '0px 2px 10px hsla(0, 0%, 0%, 0.05)'};
-  margin-bottom: ${props => (props.location === 'homePage' ? '80px' : '15px')};
-  overflow-y: ${props => (props.location === 'homePage' ? 'visible' : 'hidden')};
+    props.pageLocation === 'homePage' ? '' : '0px 2px 10px hsla(0, 0%, 0%, 0.05)'};
+  margin-bottom: ${props => (props.pageLocation === 'homePage' ? '80px' : '15px')};
+  overflow-y: ${props => (props.pageLocation === 'homePage' ? 'visible' : 'hidden')};
   .inner {
     display: flex;
     align-items: center;
     max-width: 1150px;
     padding: 10px;
     margin: auto;
-    padding-bottom: ${props => (props.location === 'homePage' ? '' : 0)};
+    padding-bottom: ${props => (props.pageLocation === 'homePage' ? '' : 0)};
     ${below.small_1`
       justify-content: space-between;
       flex-wrap: wrap;
@@ -66,7 +66,7 @@ const HeaderStyled = styled.header`
       bottom: 0;
       z-index: -1;
       max-width: 500px;
-      ${props => (props.location === 'homePage' ? homePageStripe : pageStripe)};
+      ${props => (props.pageLocation === 'homePage' ? homePageStripe : pageStripe)};
     }
   }
 `;
@@ -144,9 +144,9 @@ const Nav = ({ menu }) => (
   </nav>
 );
 
-const Header = ({ menu, location = '' }) => (
+const Header = ({ menu, pageLocation = '' }) => (
   <>
-    <HeaderStyled location={location}>
+    <HeaderStyled pageLocation={pageLocation}>
       <div className="inner">
         <Link to="/">
           <Logo />
@@ -164,11 +164,11 @@ Nav.propTypes = {
 
 Header.propTypes = {
   menu: PropTypes.array.isRequired,
-  location: PropTypes.string
+  pageLocation: PropTypes.string
 };
 
 Header.defaultProps = {
-  location: ''
+  pageLocation: ''
 };
 
 export default Header;

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { SectionContainer, SectionTitle } from '../styles/section';
+import { SectionContainer, SectionTitle, MyEmail } from '../styles/section';
+import { ListenButton } from './listenTakeAChance';
+
 import someTunes from '../audio/TakeAChanceOnMe-ABBA-Trimmed.mp3';
-import envelope from '../images/envelope.svg';
-import playButton from '../images/play-outline.svg';
 
 const ContactContainer = styled(SectionContainer)`
   position: relative;
@@ -72,42 +72,6 @@ const ContactInfo = styled.div`
       font-style: italic;
     }
   }
-  a {
-    width: 100%;
-    display: block;
-    text-align: center;
-    padding: 8px 8px 8px 30px;
-    color: #002a61;
-    background: #e4ecf7;
-    text-decoration: none;
-    border-radius: 10px;
-    position: relative;
-    ::before {
-      content: url(${envelope});
-      width: 15px;
-      position: absolute;
-      left: 8px;
-      top: 11px;
-    }
-  }
-`;
-
-const ListenButton = styled.button`
-  border: none;
-  background: #f6f8fb;
-  /* color: #102a42; */
-  color: #002a61;
-  border-radius: 10px;
-  box-shadow: 0px 1px 2px hsla(0, 0%, 0%, 0.15);
-  position: relative;
-  padding: 5px 15px 5px 5px;
-  width: 70px;
-  ::after {
-    content: url(${playButton});
-    width: 15px;
-    position: absolute;
-    right: 5px;
-  }
 `;
 
 const ChanceSource = styled.div`
@@ -165,18 +129,6 @@ const TrimmedTakeAChance = () => (
   </>
 );
 
-// const IframeVid = () => (
-//   <iframe
-//     id="videoTACOM"
-//     title="takeAChance"
-//     width="275"
-//     height="auto"
-//     src="https://www.youtube.com/embed/-crgQGdpZR0?start=3&end=20"
-//     frameBorder="0"
-//     allow="accelerometer; autoplay; encrypted-media; gyroscope;"
-//   />
-// );
-
 const Contact = () => {
   const [showVid, toggleVid] = useState(0);
 
@@ -189,7 +141,7 @@ const Contact = () => {
             Feel free to reach out! <br />
             <span>(I like jokes and fun facts)</span>
           </p>
-          <a href="mailto:mr.mraguso@gmail.com">mr.mraguso@gmail.com</a>
+          <MyEmail href="mailto:mr.mraguso@gmail.com">mr.mraguso@gmail.com</MyEmail>
           <p>
             Looking to hire? <br />
             <span>Take a Chance on Me...</span>

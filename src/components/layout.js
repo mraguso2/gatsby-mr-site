@@ -15,7 +15,7 @@ const LayoutStyled = styled.div`
   min-height: 100vh;
 `;
 
-const Layout = ({ children, location = '' }) => (
+const Layout = ({ children, pageLocation = '' }) => (
   <StaticQuery
     query={graphql`
       query SiteMenuQuery {
@@ -31,7 +31,7 @@ const Layout = ({ children, location = '' }) => (
     `}
     render={data => (
       <>
-        <Header location={location} menu={data.site.siteMetadata.menu} />
+        <Header pageLocation={pageLocation} menu={data.site.siteMetadata.menu} />
         <LayoutStyled>
           <main>{children}</main>
         </LayoutStyled>
@@ -43,11 +43,11 @@ const Layout = ({ children, location = '' }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  location: PropTypes.string
+  pageLocation: PropTypes.string
 };
 
 Layout.defaultProps = {
-  location: ''
+  pageLocation: ''
 };
 
 export default Layout;

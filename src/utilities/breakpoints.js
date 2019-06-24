@@ -3,6 +3,7 @@ import { css } from 'styled-components';
 const size = {
   small_0: 349,
   small_1: 500,
+  med_0: 625,
   med_1: 750,
   med_2: 960,
   large: 1140

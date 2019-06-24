@@ -17,7 +17,7 @@ const ProjectImage = ({ style }) => (
     `}
     render={data => (
       <Img
-        alt="Picture of objects meant to represent project and hinking"
+        alt="Picture for the projects page"
         style={style}
         fluid={data.placeholderImage.childImageSharp.fluid}
       />
