@@ -60,6 +60,10 @@ const HireMe = styled.section`
   margin-top: 3rem;
   padding-top: 3rem;
   position: relative;
+  /* height: ${props => (props.showVid === 'No' ? '' : '465px')}; */
+  padding-bottom: ${props => (props.showVid === 'No' ? '' : '225px')};
+  transition: all 1s;
+  position: relative;
   h3 {
     font-weight: 400;
     color: #102a42;
@@ -104,14 +108,18 @@ const TakeAChance = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   p {
     font-size: 0.7rem;
+    text-align: left;
   }
 `;
 
 const ChanceVideoBlock = styled.div`
   position: absolute;
-  bottom: ${props => (props.showVid === 'Yes' ? '-195px' : '30px')};
+  /* bottom: ${props => (props.showVid === 'Yes' ? '-195px' : '30px')}; */
+  bottom: -195px;
+  left: ${props => (props.showVid === 'Yes' ? '0' : '1000%')};
   display: flex;
   flex-direction: column;
   transition: all 1s;
@@ -119,6 +127,9 @@ const ChanceVideoBlock = styled.div`
   background: ${props => (props.showVid === 'Yes' ? 'white' : 'none')};
   border-radius: 8px;
   padding: ${props => (props.showVid === 'Yes' ? '12px' : '0px')};
+  width: 325px;
+  right: 0;
+  margin: auto;
   button.close {
     opacity: ${props => (props.showVid === 'Yes' ? 1 : 0)};
     background: white;
@@ -162,7 +173,7 @@ const ContactPage = () => {
         </ContactInfo>
         <ContactPicStyled src={contactPic} alt="a mailbox" />
       </ContactGroup>
-      <HireMe>
+      <HireMe showVid={showVid === 0 ? 'No' : 'Yes'}>
         <h3>Looking to hire?</h3>
         <p>
           I am currently available to discuss freelancing Front End/Back End development, design,
