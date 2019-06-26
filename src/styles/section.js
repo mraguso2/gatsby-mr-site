@@ -60,6 +60,12 @@ export const HeroTitle = styled(SectionTitle)`
   top: -20px;
   left: 15px;
   box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12);
+  ${above.med_0`
+    font-size: 2.2rem;
+  `}
+  ${above.med_1`
+    font-size: 2.5rem;
+  `}
 `;
 
 const aboutHero = css`
@@ -74,9 +80,17 @@ const aboutHero = css`
 
 const projectsHero = css`
   height: 200px;
-  ::after {
-    background: linear-gradient(180deg, hsla(214, 79%, 44%, 0.15) 80%, hsla(214, 79%, 44%, 0.2));
+  max-width: 600px;
+  ::before {
+    border: 2px solid #699bde;
   }
+  ::after {
+    /* background: linear-gradient(180deg, hsla(214, 79%, 44%, 0.15) 80%, hsla(214, 79%, 44%, 0.2)); */
+    background: linear-gradient(180deg, hsla(214, 100%, 50%, 0.09) 80%, hsla(214, 100%, 55%, 0.15));
+  }
+  ${above.small_1`
+    width: 65%;
+  `}
   ${above.med_1`
     height: 275px;
   `}

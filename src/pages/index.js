@@ -5,7 +5,7 @@ import SEO from '../components/seo';
 import SliceHero from '../components/sliceHero';
 import AboutMe from '../components/aboutMe';
 import Projects from '../components/projects';
-import Contact from '../components/contact';
+import ContactBlock from '../components/contactBlock';
 
 const IndexPage = () => (
   <Layout pageLocation="homePage">
@@ -16,7 +16,7 @@ const IndexPage = () => (
     <SliceHero />
     <AboutMe />
     <Projects />
-    <Contact />
+    <ContactBlock />
   </Layout>
 );
 

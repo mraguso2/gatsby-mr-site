@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import BreadCrumbs from '../components/breadcrumbs';
 import { MyEmail } from '../styles/section';
-import { below } from '../utilities/breakpoints';
+import { above, below } from '../utilities/breakpoints';
 import contactPic from '../images/undraw-online-discussion.svg';
 // import contactPic from '../images/undraw-mailbox.svg';
 import { ListenButton, TrimmedTakeAChance } from '../components/listenTakeAChance';
@@ -24,12 +24,13 @@ const ContactTitle = styled.h1`
 
 const ContactGroup = styled.section`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   max-width: 600px;
   margin: auto;
-  ${below.med_0`
-    flex-direction: column;
-    align-items: center;
+  ${above.med_0`
+    flex-direction: row;
+    justify-content: center;
   `}
 `;
 
@@ -47,7 +48,6 @@ const ContactInfo = styled.p`
   font-size: 1.25rem;
   text-align: center;
   padding-top: 0.8rem;
-  line-height: 1.3;
   margin-right: 2.5rem;
   ${below.med_0`
     margin: auto;
@@ -57,7 +57,7 @@ const ContactInfo = styled.p`
 const HireMe = styled.section`
   max-width: 650px;
   margin: auto;
-  margin-top: 3rem;
+  margin-top: 3.2rem;
   padding-top: 3rem;
   position: relative;
   /* height: ${props => (props.showVid === 'No' ? '' : '465px')}; */
@@ -71,7 +71,7 @@ const HireMe = styled.section`
   }
   p {
     font-size: 1.05rem;
-    line-height: 1.35;
+    line-height: 1.4;
     &#chanceLeadText {
       text-align: center;
       font-size: 1rem;
@@ -117,8 +117,8 @@ const TakeAChance = styled.div`
 
 const ChanceVideoBlock = styled.div`
   position: absolute;
-  /* bottom: ${props => (props.showVid === 'Yes' ? '-195px' : '30px')}; */
-  bottom: -195px;
+  bottom: ${props => (props.showVid === 'Yes' ? '-195px' : '30px')};
+  /* bottom: -195px; */
   left: ${props => (props.showVid === 'Yes' ? '0' : '1000%')};
   display: flex;
   flex-direction: column;
@@ -147,7 +147,7 @@ const ChanceVideoBlock = styled.div`
 `;
 
 const ContactPage = () => {
-  const [showVid, toggleVid] = useState(0);
+  const [showVid, toggleVid] = useState('No');
   return (
     <Layout>
       <SEO
@@ -173,7 +173,7 @@ const ContactPage = () => {
         </ContactInfo>
         <ContactPicStyled src={contactPic} alt="a mailbox" />
       </ContactGroup>
-      <HireMe showVid={showVid === 0 ? 'No' : 'Yes'}>
+      <HireMe showVid={showVid}>
         <h3>Looking to hire?</h3>
         <p>
           I am currently available to discuss freelancing Front End/Back End development, design,
@@ -183,14 +183,14 @@ const ContactPage = () => {
           On the fence - <em>Take a Chance on Me...</em>
         </p>
         <TakeAChance>
-          <ListenButton background="white" onClick={() => toggleVid(1)} type="button">
+          <ListenButton background="white" onClick={() => toggleVid('Yes')} type="button">
             Listen
           </ListenButton>
-          <ChanceVideoBlock showVid={showVid === 0 ? 'No' : 'Yes'}>
-            <button type="button" onClick={() => toggleVid(0)} className="close">
+          <ChanceVideoBlock showVid={showVid}>
+            <button type="button" onClick={() => toggleVid('No')} className="close">
               Close <span style={{ color: 'inherit' }}>&#10006;</span>
             </button>
-            {showVid === 1 ? <TrimmedTakeAChance /> : ''}
+            {showVid === 'Yes' ? <TrimmedTakeAChance /> : ''}
           </ChanceVideoBlock>
         </TakeAChance>
       </HireMe>

@@ -267,9 +267,8 @@ const AboutPage = () => (
         <p>
           I have been lucky to work with various industries from simple to complex projects. From
           static websites to dynamic web applications to complex VBA excel solutions I have been
-          able to strengthen my knowledge base. I like to teach what I know to others. Successfully
-          helping someone understand a new or challenging concept provides me with a sense of
-          accomplishment.
+          able to learn and fail along the way. I like to teach what I know to others. Successfully
+          helping someone understand a new or challenging concept is very rewarding.
         </p>
         <p>
           Besides <em>nerding out</em> – I love being outside, exploring places I’ve never been,
