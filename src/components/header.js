@@ -94,7 +94,7 @@ const NavStyled = styled.ul`
 
 const MyNameText = styled.p`
   height: 30px;
-  background: white;
+  background: none;
   padding-left: 10px;
   padding-bottom: 3px;
   position: relative;
@@ -110,6 +110,7 @@ const MyNameText = styled.p`
       padding-bottom: 0px;
   `}
   ${below.small_1`
+    background: white;
     height: 25px;
     margin: 0 10px 0 0;
     width: 100%;
@@ -118,7 +119,7 @@ const MyNameText = styled.p`
   ::after {
     content: '';
     position: absolute;
-    background: white;
+    background: none;
     top: 0;
     right: -10px;
     bottom: 0;
@@ -127,6 +128,9 @@ const MyNameText = styled.p`
     -moz-transform: skew(-20deg);
     -ms-transform: skew(-20deg);
     transform: skew(-20deg);
+    ${below.small_1`
+      background: white;
+    `}
   }
 `;
 

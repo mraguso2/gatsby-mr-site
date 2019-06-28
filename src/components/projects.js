@@ -25,12 +25,11 @@ const ProjectContainer = styled(SectionContainer)`
 `;
 
 const ProjectSectionTitle = styled(SectionTitle)`
-  margin-top: 30px;
   span {
     color: #1663c7;
     font-size: 0.85rem;
     font-style: italic;
-    background: linear-gradient(180deg, #f1f5f8, #d4e1f1);
+    /* background: linear-gradient(180deg, #f1f5f8, #d4e1f1); */
     padding: 3px;
     border-radius: 5px;
   }
@@ -40,12 +39,14 @@ const ProjectCard = styled.article`
   box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12);
   padding: 15px;
   background: #fff;
+  background: linear-gradient(-45deg, white, #e4eefb, white);
+  background: linear-gradient(-45deg,white,#f0f7ff,white);
   margin: 10px auto 25px;
   border-radius: 10px;
   display: flex;
   max-width: 600px;
   width: 100%;
-  border-top: 3px solid #92aed0;
+  border-top: 2px solid #92aed0;
   /* height: 179px; */
   ${above.small_1`
     height: auto;
@@ -66,6 +67,7 @@ const ProjectTitle = styled.h2`
   font-size: 1.3rem;
   font-weight: 500;
   margin: 5px 0 0;
+  color: hsl(214, 72%, 32%);
   ${above.med_1`
     font-size: 1.5rem;
   `}
@@ -104,15 +106,15 @@ const ProjectTextContainer = styled.div`
 const ImageContainer = styled.div`
   width: 100%;
   max-width: 90px;
-  margin-right: 15px;
-  ${above.small_1`
-    max-width: 110px;
-  `}
+  position: relative;
+  margin: auto 15px auto 5px;
   ${above.med_1`
-    max-width: 110px;
+    margin-left: 0px;
+    margin-right: 20px;
   `}
-  ${above.med_1`
-    max-width: 90px;
+  ${above.med_2`
+    margin-left: 5px;
+    margin-right: 15px;
   `}
 `;
 
@@ -143,7 +145,7 @@ const Projects = () => (
     render={({ allMdx }) => (
       <ProjectContainer id="projects">
         <SectionContentStyled>
-          <ProjectSectionTitle width="105px" color="#102a42">
+          <ProjectSectionTitle width="120px" color="#102a42" colorLine="#1763c7">
             <a href="/projects">
               Projects <span>~ Show All</span>
             </a>
@@ -156,7 +158,7 @@ const Projects = () => (
                   <ImageIcons
                     src={node.frontmatter.icon}
                     style={{
-                      minWidth: '90px',
+                      width: '90px',
                       borderRadius: '10%',
                       boxShadow: '0 1px 3px hsla(0,0%,0%,0.12), 0 1px 2px hsla(0,0%,0%,0.24)'
                     }}
@@ -183,7 +185,3 @@ const Projects = () => (
 );
 
 export default Projects;
-
-// triangles
-// background-color: #f1f5f8;
-// background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23829ab0' fill-opacity='0.19'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");

@@ -130,3 +130,7 @@ a {
 a:visited {
   color: #731cb6;
 }
+
+section {
+  padding-bottom: 20px;
+}

@@ -48,6 +48,16 @@ module.exports = {
         name: 'projects'
       }
     },
+    {
+      resolve: 'gatsby-plugin-prefetch-google-fonts',
+      options: {
+        fonts: [
+          {
+            family: 'Muli'
+          }
+        ]
+      }
+    },
     'gatsby-transformer-remark',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

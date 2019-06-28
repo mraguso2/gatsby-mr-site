@@ -175,6 +175,7 @@ const Bio = styled.section`
   line-height: 1.6;
   max-width: 500px;
   margin: auto;
+  padding-bottom: 20px;
   p {
     text-indent: 40px;
     text-align: left;

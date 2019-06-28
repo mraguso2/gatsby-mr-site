@@ -6,6 +6,7 @@ import envelope from '../images/envelope.svg';
 export const SectionContainer = styled.section`
   margin-top: 30px;
   margin-bottom: 30px;
+  padding: 20px 0;
 `;
 
 export const FullWidthContainer = styled(SectionContainer)`
@@ -29,7 +30,7 @@ export const SectionTitle = styled.h2`
   font-weight: 400;
   display: inline-block;
   position: relative;
-  font-size: 1.9rem;
+  font-size: 2.2rem;
   margin-bottom: 1.55rem;
   a,
   a:visited {
@@ -43,7 +44,7 @@ export const SectionTitle = styled.h2`
     bottom: -3.5px;
     height: 2px;
     width: ${props => props.width || ''};
-    background: ${props => props.color || '#102a42'};
+    background: ${props => props.colorLine || 'hsl(209,61%,16%)'};
     -webkit-transform: rotate(-1deg);
     -webkit-transform: rotate(-1deg);
     -ms-transform: rotate(-1deg);
