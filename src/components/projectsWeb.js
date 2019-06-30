@@ -9,7 +9,7 @@ import ProjectListing from './projectListing';
 export const PROJECT_LISTING_WEB = graphql`
   query WebProjectQuery {
     allMdx(
-      filter: { frontmatter: { web: { eq: true } } }
+      filter: { frontmatter: { type: { eq: "web" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
@@ -19,6 +19,8 @@ export const PROJECT_LISTING_WEB = graphql`
             slug
             description
             icon
+            type
+            tags
           }
         }
       }
@@ -50,17 +52,17 @@ export const WebTitle = styled(SweetBorderTitle)`
   }
 `;
 
-const ExcelProjects = () => (
+const WebProjects = () => (
   <StaticQuery
     query={PROJECT_LISTING_WEB}
     render={({ allMdx }) => (
       <ProjectCollection>
         {allMdx.edges.map(({ node }) => (
-          <ProjectListing key={node.frontmatter.slug} node={node} />
+          <ProjectListing type={node.frontmatter.type} key={node.frontmatter.slug} node={node} />
         ))}
       </ProjectCollection>
     )}
   />
 );
 
-export default ExcelProjects;
+export default WebProjects;

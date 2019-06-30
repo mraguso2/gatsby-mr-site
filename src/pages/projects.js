@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import BreadCrumbs from '../components/breadcrumbs';
-import { Hero, HeroTitle, SweetBorderTitle, SectionContainer } from '../styles/section';
+import { Hero, HeroTitle, SectionContainer } from '../styles/section';
 import ProjectImage from '../components/imageProject';
 import projSVG from '../images/nT_2640644.svg';
 import { above, below } from '../utilities/breakpoints';
@@ -36,7 +36,7 @@ const Description = styled.section`
   align-items: center;
   padding-top: 40px;
   padding-bottom: 60px;
-  justify-content: space-around;
+  justify-content: center;
   .dadjoke {
     display: block;
     margin-top: 8px;
@@ -50,8 +50,9 @@ const Description = styled.section`
 const IconGroup = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-right: 2rem;
   img {
-    margin-right: 15px;
+    margin-right: 1rem;
   }
   p {
     line-height: 1.4;
@@ -61,6 +62,7 @@ const IconGroup = styled.div`
   }
   ${below.med_1`
     margin-bottom: 1.5rem;
+    margin-right: 0;
   `}
 `;
 

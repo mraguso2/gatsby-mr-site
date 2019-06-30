@@ -9,7 +9,7 @@ import ProjectListing from './projectListing';
 export const PROJECT_LISTING_EXCEL = graphql`
   query ExcelProjectQuery {
     allMdx(
-      filter: { frontmatter: { excel: { eq: true } } }
+      filter: { frontmatter: { type: { eq: "excel" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
@@ -19,6 +19,8 @@ export const PROJECT_LISTING_EXCEL = graphql`
             slug
             description
             icon
+            type
+            tags
           }
         }
       }
@@ -56,7 +58,7 @@ const ExcelProjects = () => (
     render={({ allMdx }) => (
       <ProjectCollection>
         {allMdx.edges.map(({ node }) => (
-          <ProjectListing key={node.frontmatter.slug} node={node} excel="true" />
+          <ProjectListing key={node.frontmatter.slug} node={node} type={node.frontmatter.type} />
         ))}
       </ProjectCollection>
     )}

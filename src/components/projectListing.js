@@ -1,44 +1,61 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
+import { above } from '../utilities/breakpoints';
 import ImageIcons from './imagesProjectIcons';
-import { StyledLink } from '../styles/section';
+
 import {
-  ProjectCard,
-  ProjectTitle,
+  CardLink,
+  ImageContainer,
   ProjectBioContainer,
+  ProjectCard,
   ProjectTextContainer,
-  ImageContainer
+  ProjectTitle,
+  TagsGroup
 } from '../styles/projects';
 
-const ProjectListing = ({ node, excel }) => (
-  <StyledLink to={`/projects${node.frontmatter.slug}`}>
-    <ProjectCard excel={excel}>
+const TagsList = ({ tags }) => (
+  <TagsGroup>
+    {tags.map(tag => (
+      <li key={tag}>{tag}</li>
+    ))}
+  </TagsGroup>
+);
+
+const ProjectListing = ({ node, type }) => (
+  <ProjectCard type={type}>
+    <CardLink to={`/projects${node.frontmatter.slug}`}>
       <ImageContainer>
         <ImageIcons
           src={node.frontmatter.icon}
           style={{
-            width: '90px',
+            width: '75px',
             borderRadius: '10%',
             boxShadow: '0 1px 3px hsla(0,0%,0%,0.12), 0 1px 2px hsla(0,0%,0%,0.24)'
           }}
         />
       </ImageContainer>
       <ProjectTextContainer>
-        <ProjectTitle excel={excel}>{node.frontmatter.title}</ProjectTitle>
-        <ProjectBioContainer>{node.frontmatter.description}</ProjectBioContainer>
+        <ProjectTitle type={type}>{node.frontmatter.title}</ProjectTitle>
+        <ProjectBioContainer type={type}>{node.frontmatter.description}</ProjectBioContainer>
       </ProjectTextContainer>
-    </ProjectCard>
-  </StyledLink>
+    </CardLink>
+    {node.frontmatter.tags ? <TagsList tags={node.frontmatter.tags} /> : ''}
+  </ProjectCard>
 );
 
 ProjectListing.propTypes = {
   node: PropTypes.object.isRequired,
-  excel: PropTypes.string
+  type: PropTypes.string.isRequired
 };
 
-ProjectListing.defaultProps = {
-  excel: ''
+TagsList.propTypes = {
+  tags: PropTypes.array
+};
+
+TagsList.defaultProps = {
+  tags: []
 };
 
 export default ProjectListing;

@@ -48,6 +48,8 @@ const PROJECT_LISTING_FEATURED = graphql`
             slug
             description
             icon
+            type
+            tags
           }
         }
       }
@@ -69,7 +71,11 @@ const ProjectsBlock = () => (
           <p id="featured">FEATURED</p>
           <ProjectCollection>
             {allMdx.edges.map(({ node }) => (
-              <ProjectListing key={node.frontmatter.slug} node={node} />
+              <ProjectListing
+                key={node.frontmatter.slug}
+                node={node}
+                type={node.frontmatter.type}
+              />
             ))}
           </ProjectCollection>
         </SectionContentStyled>
