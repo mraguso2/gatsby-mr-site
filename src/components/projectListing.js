@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
-import { above } from '../utilities/breakpoints';
 import ImageIcons from './imagesProjectIcons';
 
 import {

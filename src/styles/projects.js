@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { below, above } from '../utilities/breakpoints';
+import { above } from '../utilities/breakpoints';
 import { StyledLink } from './section';
 
 export const ProjectCollection = styled.div`
@@ -81,21 +81,18 @@ export const ProjectTitle = styled.h2`
 export const ProjectBioContainer = styled.p`
   font-size: 0.85rem;
   line-height: 1.5;
-  margin: 10px auto 10px;
+  margin: 10px auto 20px;
   color: #293d50;
   ${props => (props.type === 'excel' ? excelText : '')}
   ${above.small_1`
     font-size: 0.95rem;
-  `}
-  ${below.med_0`
-    margin: 10px auto 15px;
   `}
   ${above.med_1`
     margin: 10px auto 10px;
     font-size: 1.05rem;
   `}
   ${above.med_2`
-    margin: 10px auto 15px;
+    margin: 10px auto 20px;
     font-size: 1rem;
   `}
 `;
