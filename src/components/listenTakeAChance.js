@@ -61,29 +61,29 @@ export const TrimmedTakeAChance = () => (
   </>
 );
 
-const ChanceVideoBlock = styled.div`
-  position: absolute;
-  bottom: ${props => (props.showVid === 'Yes' ? '-155px' : '0px')};
-  display: flex;
-  flex-direction: column;
-  transition: all 1s;
-  z-index: -1;
-  color: #102a42;
-  button.close {
-    opacity: ${props => (props.showVid === 'Yes' ? 1 : 0)};
-    background: #e8f1fa;
-    color: #c10d0d;
-    text-align: center;
-    font-size: 1rem;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border: 0;
-    position: relative;
-    align-self: flex-end;
-    border-radius: 10px;
-    right: 15px;
-  }
-`;
+// const ChanceVideoBlock = styled.div`
+//   position: absolute;
+//   bottom: ${props => (props.showVid === 'Yes' ? '-155px' : '0px')};
+//   display: flex;
+//   flex-direction: column;
+//   transition: all 1s;
+//   z-index: -1;
+//   color: #102a42;
+//   button.close {
+//     opacity: ${props => (props.showVid === 'Yes' ? 1 : 0)};
+//     background: #e8f1fa;
+//     color: #c10d0d;
+//     text-align: center;
+//     font-size: 1rem;
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
+//     border: 0;
+//     position: relative;
+//     align-self: flex-end;
+//     border-radius: 10px;
+//     right: 15px;
+//   }
+// `;
 
 // const ListenTakeAChance = props => (
 //   <ChanceVideoBlock showVid={props.showVid === 0 ? 'No' : 'Yes'}>

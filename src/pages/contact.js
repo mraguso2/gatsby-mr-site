@@ -7,7 +7,6 @@ import BreadCrumbs from '../components/breadcrumbs';
 import { MyEmail } from '../styles/section';
 import { above, below } from '../utilities/breakpoints';
 import contactPic from '../images/undraw-online-discussion.svg';
-// import contactPic from '../images/undraw-mailbox.svg';
 import { ListenButton, TrimmedTakeAChance } from '../components/listenTakeAChance';
 
 const ContactTitle = styled.h1`
@@ -180,7 +179,7 @@ const ContactPage = () => {
           UX|UI, and complex excel projects.
         </p>
         <p id="chanceLeadText">
-          On the fence - <em>Take a Chance on Me...</em>
+          On the fence? - <em>Take a Chance on Me...</em>
         </p>
         <TakeAChance>
           <ListenButton background="white" onClick={() => toggleVid('Yes')} type="button">

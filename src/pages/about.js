@@ -6,7 +6,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import BreadCrumbs from '../components/breadcrumbs';
 import AboutImage from '../components/imageAbout';
-import { Hero, HeroTitle } from '../styles/section';
+import { Hero, HeroTitle, SweetBorderTitle } from '../styles/section';
 import { below, above } from '../utilities/breakpoints';
 import MyFace from '../components/myFace';
 import camera from '../images/heroicon-camera-sm.svg';
@@ -72,6 +72,30 @@ const CameraGroup = styled.div`
   }
 `;
 
+const SkillsTitle = styled(SweetBorderTitle)`
+  color: hsl(274, 87%, 31%);
+  ::after {
+    background-image: linear-gradient(
+      to right,
+      hsl(210, 36%, 96%),
+      hsl(264, 96%, 70%) 30%,
+      hsl(273, 80%, 49%) 50%,
+      hsl(264, 96%, 70%) 70%,
+      hsl(210, 36%, 96%)
+    );
+  }
+  ::before {
+    background-image: linear-gradient(
+      to right,
+      hsl(210, 36%, 96%),
+      hsl(264, 96%, 70%) 30%,
+      hsl(273, 80%, 49%) 50%,
+      hsl(264, 96%, 70%) 70%,
+      hsl(210, 36%, 96%)
+    );
+  }
+`;
+
 const Skills = styled.section`
   margin-bottom: 35px;
   article {
@@ -87,49 +111,6 @@ const Skills = styled.section`
     ${below.small_1`
       padding-left: 30px;
     `}
-  }
-  h3 {
-    text-align: center;
-    /* border-top: 1px solid #c7d0de;
-    border-bottom: 1px solid #c7d0de; */
-    color: hsl(274, 87%, 31%);
-    font-weight: 400;
-    position: relative;
-    margin-bottom: 32px;
-    ::after {
-      display: inline-block;
-      position: absolute;
-      left: 0;
-      bottom: -3.5px;
-      height: 1px;
-      width: 100%;
-      background-image: linear-gradient(
-        to right,
-        hsl(210, 36%, 96%),
-        hsl(264, 96%, 70%) 30%,
-        hsl(273, 80%, 49%) 50%,
-        hsl(264, 96%, 70%) 70%,
-        hsl(210, 36%, 96%)
-      );
-      content: '';
-    }
-    ::before {
-      display: inline-block;
-      position: absolute;
-      left: 0;
-      top: -3.5px;
-      height: 1px;
-      width: 100%;
-      background-image: linear-gradient(
-        to right,
-        hsl(210, 36%, 96%),
-        hsl(264, 96%, 70%) 30%,
-        hsl(273, 80%, 49%) 50%,
-        hsl(264, 96%, 70%) 70%,
-        hsl(210, 36%, 96%)
-      );
-      content: '';
-    }
   }
   li {
     padding-bottom: 10px;
@@ -185,6 +166,12 @@ const Bio = styled.section`
     font-weight: 500;
     margin: 0 auto 10px;
   }
+  span {
+    font-size: 0.9rem;
+    text-align: center;
+    display: block;
+    background: #ffffff;
+  }
 `;
 
 const skills = {
@@ -227,7 +214,7 @@ const AboutPage = () => (
       <MyFace style={myFaceStyles} noText outlineColor="hsl(209,61%,16%)" />
     </PicGroup>
     <Skills>
-      <h3>Skills</h3>
+      <SkillsTitle>Skills</SkillsTitle>
       <article>
         <ListGroup>
           <SkillsGroupTitle>FRONTEND</SkillsGroupTitle>
@@ -276,6 +263,11 @@ const AboutPage = () => (
           eating at places I’ve never been, eating just in general, going to local breweries, garage
           sales and learning the next useless fun fact.
         </p>
+        <span>
+          Check out my <Link to="/projects">projects here!</Link>
+          <br />
+          Have a question or want to say Hi, <Link to="/contact">contact me here!</Link>
+        </span>
       </div>
     </Bio>
   </Layout>

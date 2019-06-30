@@ -1,4 +1,6 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
+import { Link } from 'gatsby';
 
 import { above } from '../utilities/breakpoints';
 import envelope from '../images/envelope.svg';
@@ -18,6 +20,10 @@ export const FullWidthContainer = styled(SectionContainer)`
   margin-right: -50vw;
   padding: 5px 15px 15px;
   z-index: 1;
+`;
+
+export const StyledLink = styled(props => <Link {...props} />)`
+  text-decoration: none;
 `;
 
 export const SectionContentStyled = styled.div`
@@ -84,10 +90,16 @@ const projectsHero = css`
   max-width: 600px;
   ::before {
     border: 2px solid #699bde;
+    background: #f1f5f8;
   }
   ::after {
     /* background: linear-gradient(180deg, hsla(214, 79%, 44%, 0.15) 80%, hsla(214, 79%, 44%, 0.2)); */
-    background: linear-gradient(180deg, hsla(214, 100%, 50%, 0.09) 80%, hsla(214, 100%, 55%, 0.15));
+    background: linear-gradient(
+      180deg,
+      hsla(214, 100%, 50%, 0.02),
+      hsla(214, 100%, 50%, 0.09) 80%,
+      hsla(214, 100%, 55%, 0.18)
+    );
   }
   ${above.small_1`
     width: 65%;
@@ -150,4 +162,46 @@ export const MyEmail = styled.a`
     top: 11px;
   }
   ${props => (props['data-page'] === 'contact' ? emailContactPage : '')}
+`;
+
+export const SweetBorderTitle = styled.h3`
+  text-align: center;
+  color: hsl(274, 87%, 31%);
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 2rem;
+  ::after {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: -3.5px;
+    height: 1px;
+    width: 100%;
+    background-image: linear-gradient(
+      to right,
+      hsl(210, 36%, 96%),
+      hsl(264, 96%, 70%) 30%,
+      hsl(273, 80%, 49%) 50%,
+      hsl(264, 96%, 70%) 70%,
+      hsl(210, 36%, 96%)
+    );
+    content: '';
+  }
+  ::before {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -3.5px;
+    height: 1px;
+    width: 100%;
+    background-image: linear-gradient(
+      to right,
+      hsl(210, 36%, 96%),
+      hsl(264, 96%, 70%) 30%,
+      hsl(273, 80%, 49%) 50%,
+      hsl(264, 96%, 70%) 70%,
+      hsl(210, 36%, 96%)
+    );
+    content: '';
+  }
 `;

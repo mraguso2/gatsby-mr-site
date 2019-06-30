@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import colors from '../utilities/colors';
 import { above } from '../utilities/breakpoints';
 import { FullWidthContainer, SectionContentStyled } from '../styles/section';
 import MyFace from './myFace';
@@ -79,7 +78,7 @@ const MiniBioText = styled.span`
   font-weight: 500;
 `;
 
-const AboutMe = () => (
+const AboutMeBlock = () => (
   <AboutContainer id="aboutMe">
     <AboutContentStyled>
       <div>
@@ -106,4 +105,4 @@ const AboutMe = () => (
   </AboutContainer>
 );
 
-export default AboutMe;
+export default AboutMeBlock;
