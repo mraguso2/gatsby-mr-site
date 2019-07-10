@@ -10,8 +10,7 @@ function ProjectTemplate({ data, pageLocation }) {
   return (
     <Layout pageLocation={pageLocation}>
       <BreadCrumbs projects />
-      <h1>{mdx.frontmatter.title}</h1>
-      <MDXRenderer>{mdx.code.body}</MDXRenderer>
+      <MDXRenderer frontmatter={mdx.frontmatter}>{mdx.code.body}</MDXRenderer>
     </Layout>
   );
 }
@@ -23,6 +22,7 @@ export const query = graphql`
         title
         date
         slug
+        icon
       }
       code {
         body

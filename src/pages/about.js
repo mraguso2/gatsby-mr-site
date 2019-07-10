@@ -266,7 +266,7 @@ const AboutPage = () => (
         <span>
           Check out my <Link to="/projects">projects here!</Link>
           <br />
-          Have a question or want to say Hi, <Link to="/contact">contact me here!</Link>
+          Have a question or want to say Hi? <Link to="/contact">contact me here!</Link>
         </span>
       </div>
     </Bio>
