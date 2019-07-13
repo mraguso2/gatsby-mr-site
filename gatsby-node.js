@@ -16,21 +16,26 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `).then(results => {
-      if (results.errors) {
-        reject(results.errors);
-      }
-      results.data.allMdx.edges.forEach(({ node }) => {
-        createPage({
-          path: `/projects${node.frontmatter.slug}`,
-          component: path.resolve('./src/components/projectLayout.js'),
-          context: {
-            slug: node.frontmatter.slug
-          }
+    `)
+      .then(results => {
+        if (results.errors) {
+          reject(results.errors);
+        }
+        console.log(results.data.allMdx);
+        results.data.allMdx.edges.forEach(({ node }) => {
+          createPage({
+            path: `/projects${node.frontmatter.slug}`,
+            component: path.resolve('./src/components/projectLayout.js'),
+            context: {
+              slug: node.frontmatter.slug
+            }
+          });
         });
+        resolve();
+      })
+      .catch(err => {
+        console.log(err);
       });
-      resolve();
-    });
   });
 };
 
