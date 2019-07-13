@@ -13,8 +13,8 @@ import {
   TagsGroup
 } from '../styles/projects';
 
-const TagsList = ({ tags }) => (
-  <TagsGroup>
+const TagsList = ({ listing, tags }) => (
+  <TagsGroup listing={listing}>
     {tags.map(tag => (
       <li key={tag}>{tag}</li>
     ))}
@@ -49,10 +49,12 @@ ProjectListing.propTypes = {
 };
 
 TagsList.propTypes = {
+  listing: PropTypes.bool,
   tags: PropTypes.array
 };
 
 TagsList.defaultProps = {
+  listing: true,
   tags: []
 };
 

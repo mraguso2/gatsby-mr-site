@@ -117,26 +117,7 @@ export const ImageContainer = styled.div`
   `}
 `;
 
-export const TagsGroup = styled.ul`
-  list-style: none;
-  display: flex;
-  position: absolute;
-  margin: 0;
-  width: 100%;
-  padding-left: 0;
-  justify-content: center;
-  bottom: 5px;
-  li {
-    font-size: 0.7rem;
-    text-transform: lowercase;
-    font-weight: 500;
-    padding: 2px 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    background: #dce0e2;
-    color: #383b3e;
-    border-radius: 8px;
-  }
+const ProjectListingTagsStyle = css`
   ${above.small_1`
     padding-left: 6rem;
     justify-content: flex-start;
@@ -155,4 +136,34 @@ export const TagsGroup = styled.ul`
     top: initial;
     justify-content: flex-start;
   `}
+`;
+
+const ProjectPageTagsStyle = css`
+  ${above.small_1`
+    padding-right: 3rem;
+    justify-content: flex-end;
+  `}
+`;
+
+export const TagsGroup = styled.ul`
+  list-style: none;
+  display: flex;
+  position: absolute;
+  margin: 0;
+  width: 100%;
+  padding-left: ${props => (props.listing ? 0 : '3rem')};
+  justify-content: center;
+  bottom: 5px;
+  li {
+    font-size: 0.7rem;
+    text-transform: lowercase;
+    font-weight: 500;
+    padding: 2px 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background: #dce0e2;
+    color: #383b3e;
+    border-radius: 8px;
+  }
+  ${props => (props.listing ? ProjectListingTagsStyle : ProjectPageTagsStyle)}
 `;

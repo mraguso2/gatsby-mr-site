@@ -20,9 +20,13 @@ export const query = graphql`
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
-        date
+        date(formatString: "MMM-YYYY")
         slug
         icon
+        type
+        tags
+        featured
+        link
       }
       code {
         body
