@@ -39,7 +39,7 @@ const ProjectListing = ({ node, type }) => (
         <ProjectBioContainer type={type}>{node.frontmatter.description}</ProjectBioContainer>
       </ProjectTextContainer>
     </CardLink>
-    {node.frontmatter.tags ? <TagsList tags={node.frontmatter.tags} /> : ''}
+    {node.frontmatter.tags ? <TagsList listing tags={node.frontmatter.tags} /> : ''}
   </ProjectCard>
 );
 
