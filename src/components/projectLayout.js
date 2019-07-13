@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 
@@ -20,7 +21,7 @@ export const query = graphql`
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
-        date(formatString: "MMM-YYYY")
+        date
         slug
         icon
         type
@@ -34,5 +35,14 @@ export const query = graphql`
     }
   }
 `;
+
+ProjectTemplate.propTypes = {
+  data: PropTypes.object.isRequired,
+  pageLocation: PropTypes.string
+};
+
+ProjectTemplate.defaultProps = {
+  pageLocation: ''
+};
 
 export default ProjectTemplate;
