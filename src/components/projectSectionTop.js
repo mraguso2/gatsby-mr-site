@@ -60,6 +60,7 @@ const TopContainerStyled = styled(FullWidthContainer)`
     margin-left: auto;
     margin-right: auto;
     padding: 15px;
+    max-width: 650px;
   `}
 `;
 
@@ -94,7 +95,7 @@ const TopText = styled.div`
   }
 `;
 
-const TopDetails = styled.div`
+const TopDetailsStyled = styled.div`
   color: hsl(209, 61%, 16%);
   background: hsla(211, 51%, 91%, 0.5);
   padding: 5px;
@@ -117,7 +118,7 @@ const FeatureTextStyled = styled.p`
 
 const FeatureText = () => <FeatureTextStyled>FEATURED</FeatureTextStyled>;
 
-const LinkToLive = styled.a`
+const LinkToLiveStyled = styled.a`
   position: relative;
   padding: 8px;
   display: block;
@@ -131,6 +132,17 @@ const LinkToLive = styled.a`
     bottom: 4px;
   }
 `;
+
+const LinkToLive = ({ frontmatter }) => (
+  <LinkToLiveStyled href={frontmatter.link}>See It Live</LinkToLiveStyled>
+);
+
+const TopDetails = ({ frontmatter }) => (
+  <TopDetailsStyled>
+    {frontmatter.featured ? <FeatureText /> : null}
+    {frontmatter.type === 'web' ? <LinkToLive frontmatter={frontmatter} /> : null}
+  </TopDetailsStyled>
+);
 
 const TagsList = ({ listing, tags }) => (
   <TagsGroup listing={listing}>
@@ -153,10 +165,7 @@ const ProjectSectionTop = ({ frontmatter }) => (
       />
       <TopText>
         <h3>{frontmatter.title}</h3>
-        <TopDetails>
-          {frontmatter.featured ? <FeatureText /> : ''}
-          <LinkToLive href={frontmatter.link}>See It Live</LinkToLive>
-        </TopDetails>
+        {frontmatter.featured || frontmatter.link ? <TopDetails frontmatter={frontmatter} /> : ''}
       </TopText>
     </TopSection>
     {frontmatter.tags ? <TagsList listing={false} tags={frontmatter.tags} /> : ''}
