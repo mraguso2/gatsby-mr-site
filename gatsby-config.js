@@ -40,7 +40,8 @@ module.exports = {
         name: 'images'
       }
     },
-    'gatsby-mdx',
+    // 'gatsby-mdx',
+    'gatsby-plugin-mdx',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

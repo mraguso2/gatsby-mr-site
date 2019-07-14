@@ -18,6 +18,7 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `).then(results => {
       if (results.errors) {
+        console.error(results.errors);
         reject(results.errors);
       }
       results.data.allMdx.edges.forEach(({ node }) => {
@@ -41,36 +42,3 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     }
   });
 };
-
-// exports.createPages = ({ graphql, actions }) => {
-//   const { createPage } = actions;
-//   return new Promise((resolve, reject) => {
-//     graphql(`
-//       {
-//         allMarkdownRemark {
-//           edges {
-//             node {
-//               frontmatter {
-//                 slug
-//               }
-//             }
-//           }
-//         }
-//       }
-//     `).then(results => {
-//       if (results.errors) {
-//         Promise.reject(results.errors);
-//       }
-//       results.data.allMarkdownRemark.edges.forEach(({ node }) => {
-//         createPage({
-//           path: `/projects${node.frontmatter.slug}`,
-//           component: path.resolve('./src/components/projectLayout.js'),
-//           context: {
-//             slug: node.frontmatter.slug
-//           }
-//         });
-//       });
-//       resolve();
-//     });
-//   });
-// };

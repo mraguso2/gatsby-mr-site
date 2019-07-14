@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { FullWidthContainer, SectionContentStyled } from '../styles/section';
+import { FullWidthContainer } from '../styles/section';
 import { TagsGroup } from '../styles/projects';
-import { below, above } from '../utilities/breakpoints';
+import { above } from '../utilities/breakpoints';
 import webCogs from '../images/floating-cogs.svg';
 import excelCogs from '../images/floating-cogs-excel.svg';
 import externalLink from '../images/icon-external-window.svg';
@@ -171,6 +171,18 @@ const ProjectSectionTop = ({ frontmatter }) => (
     {frontmatter.tags ? <TagsList listing={false} tags={frontmatter.tags} /> : ''}
   </TopContainerStyled>
 );
+
+ProjectSectionTop.propTypes = {
+  frontmatter: PropTypes.object.isRequired
+};
+
+LinkToLive.propTypes = {
+  frontmatter: PropTypes.object.isRequired
+};
+
+TopDetails.propTypes = {
+  frontmatter: PropTypes.object.isRequired
+};
 
 TagsList.propTypes = {
   listing: PropTypes.bool,
