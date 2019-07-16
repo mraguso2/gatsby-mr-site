@@ -3,15 +3,20 @@ import styled from 'styled-components';
 
 import { below } from '../utilities/breakpoints';
 import briefcase from '../images/heroicon-briefcase-sm.svg';
+import sign from '../images/heroicon-sign-sm.svg';
+import tools from '../images/heroicon-tools-sm.svg';
+import clipboard from '../images/heroicon-form-sm.svg';
 
 const Description = styled.section`
   display: flex;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 60px;
+  padding-bottom: 50px;
   justify-content: center;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+  align-items: flex-start;
   ${below.med_1`
-    flex-direction: column;
+    align-items: flex-start;
   `}
 `;
 
@@ -21,15 +26,22 @@ const IconGroup = styled.div`
   margin-right: 2rem;
   img {
     margin-right: 1rem;
+    width: 40px;
+    ${below.med_1`
+      width: 30px;
+    `}
   }
   p {
     line-height: 1.4;
     letter-spacing: 1px;
     font-weight: 500;
     color: hsl(168, 80%, 23%);
+    color: hsl(209, 61%, 16%);
+    font-size: 1.7rem;
+    margin: 1.5rem auto;
   }
   ${below.med_1`
-    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
     margin-right: 0;
   `}
 `;
@@ -37,12 +49,15 @@ const IconGroup = styled.div`
 const DescText = styled.p`
   max-width: 500px;
   line-height: 1.6;
-  padding: 25px 15px;
-  background: white;
+  padding-left: 15px;
   position: relative;
   border-radius: 2px;
+  margin: 0;
+  p {
+    margin: 0;
+  }
   ::after {
-    content: '';
+    /* content: ''; */
     position: absolute;
     width: 100%;
     height: 100%;
@@ -55,20 +70,31 @@ const DescText = styled.p`
   }
 `;
 
-const ProjectSectionIconGroup = ({ iconInfo }) => (
+const imageSrc = iconName => {
+  let source;
+  switch (iconName) {
+    case 'clipboard':
+      source = clipboard;
+      break;
+    case 'tools':
+      source = tools;
+      break;
+    case 'sign':
+      source = sign;
+      break;
+    default:
+      source = '';
+  }
+  return source;
+};
+
+const ProjectSectionIconGroup = ({ iconInfo, sectionHeader, children }) => (
   <Description>
     <IconGroup>
-      <img src={briefcase} alt="A Briefcase" />
-      <p>
-        MY DIGITAL <br />
-        BRIEFCASE
-      </p>
+      <img style={{ fill: '#fff' }} src={imageSrc(iconInfo)} alt="A Briefcase" />
+      <p>{sectionHeader}</p>
     </IconGroup>
-    <DescText>
-      A collection of projects that I have built. They are grouped into Web and Microsoft Excel
-      buckets. Projects range in complexity, size, tech used and whether or not still actively being
-      developed. Check them out and contact me with any questions!
-    </DescText>
+    <DescText>{children}</DescText>
   </Description>
 );
 

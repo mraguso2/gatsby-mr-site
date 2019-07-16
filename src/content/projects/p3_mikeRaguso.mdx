@@ -12,17 +12,18 @@ tags: ['gatsbyjs', 'styled-comp', 'mdx', 'graphql']
 ---
 
 import ProjectSectionTop from '../../components/projectSectionTop';
+import ProjectSectionIconGroup from '../../components/projectSectionIconGroup.js';
 
 <ProjectSectionTop frontmatter={props.frontmatter} />
 
-## Background
+<ProjectSectionIconGroup iconInfo="clipboard" sectionHeader="Background">
+  yo why you make this?
+</ProjectSectionIconGroup>
 
-yo why you make this?
+<ProjectSectionIconGroup iconInfo="tools" sectionHeader="Under The Hood">
+  The tech used to make this shin ding happen
+</ProjectSectionIconGroup>
 
-## Under the Hood
-
-The tech used to make this shin ding happen
-
-## What's next
-
-Follow the yellow brick road
+<ProjectSectionIconGroup iconInfo="sign" sectionHeader="Next Steps">
+  Follow the yellow brick road
+</ProjectSectionIconGroup>
