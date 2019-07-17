@@ -81,6 +81,7 @@ const TopText = styled.div`
   flex-direction: column;
   justify-content: center;
   min-width: 227px;
+  align-items: center;
   h3 {
     font-size: 1.4rem;
     color: #102a42;
@@ -102,7 +103,7 @@ const TopDetailsStyled = styled.div`
   color: hsl(209, 61%, 16%);
   background: hsla(211, 51%, 91%, 0.5);
   border-radius: 5px;
-  max-width: 155px;
+  max-width: 140px;
   p {
     margin: 0;
     font-size: 0.9rem;
@@ -117,7 +118,7 @@ const FeatureTextStyled = styled.p`
   margin: 0 auto 0;
   position: absolute;
   left: 40px;
-  top: 8px;
+  top: 5px;
   ::before {
     content: url(${iconBolt});
     position: absolute;
@@ -141,8 +142,16 @@ const LinkToLiveStyled = styled.a`
     position: absolute;
     width: 22px;
     margin-left: 10px;
-    bottom: 4px;
+    bottom: 3px;
+    ${below.small_1`
+      width: 20px;
+      bottom: 1px;
+    `}
   }
+  ${below.small_1`
+    font-size: 1rem;
+    padding: 5px;
+  `}
 `;
 
 const LinkToLive = ({ frontmatter }) => (
