@@ -5,25 +5,29 @@ description: 'My digital portfolio of projects/a way to learn about me. You are 
 link: 'https://www.mikeraguso.com'
 date: '2019-05-30'
 image: 'somepic.jpeg'
-icon: 'MR-icon2.png'
+icon: 'MR-icon4.png'
 featured: true
 type: 'web'
 tags: ['gatsbyjs', 'styled-comp', 'mdx', 'graphql']
 ---
 
+import { Link } from 'gatsby';
 import ProjectSectionTop from '../../components/projectSectionTop';
 import ProjectSectionIconGroup from '../../components/projectSectionIconGroup.js';
 
 <ProjectSectionTop frontmatter={props.frontmatter} />
 
 <ProjectSectionIconGroup iconInfo="clipboard" sectionHeader="Background">
-  yo why you make this?
+  I wanted a personal, digital portfolio to showcase my work and projects. It
+  also serves as another way to document my website development skills. Please
+  don't heistate to <Link to="/contact">get in touch</Link> if you have any
+  questions, comments or want to just say Hi!
 </ProjectSectionIconGroup>
 
 <ProjectSectionIconGroup iconInfo="tools" sectionHeader="Under The Hood">
-  The tech used to make this shin ding happen
+  GatsbyJS React GraphQL MDX Styled Components Hosted on Netlify
 </ProjectSectionIconGroup>
 
 <ProjectSectionIconGroup iconInfo="sign" sectionHeader="Next Steps">
-  Follow the yellow brick road
+  Stable version released -Potentially add a blog -Books Read Page
 </ProjectSectionIconGroup>

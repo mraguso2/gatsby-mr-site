@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import logoMR from '../images/logo-MR.svg';
+import logoMR4 from '../images/logo-MR-4.svg';
 import { below, above } from '../utilities/breakpoints';
 
 const LogoStyled = styled.img`
@@ -48,15 +48,15 @@ const HeaderStyled = styled.header`
   .inner {
     display: flex;
     align-items: center;
-    max-width: 1150px;
+    max-width: 960px;
     padding: 10px;
     margin: auto;
     padding-bottom: ${props => (props.pageLocation === 'homePage' ? '' : 0)};
     ${below.small_1`
       justify-content: space-between;
       flex-wrap: wrap;
-      padding-left: 5px;
-      padding-right: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
     `}
     ::before {
       content: '';
@@ -110,6 +110,7 @@ const MyNameText = styled.p`
       padding-bottom: 0px;
   `}
   ${below.small_1`
+    padding-left: 5px;
     background: white;
     height: 25px;
     margin: 0 10px 0 0;
@@ -134,7 +135,7 @@ const MyNameText = styled.p`
   }
 `;
 
-const Logo = () => <LogoStyled src={logoMR} alt="logo" />;
+const Logo = () => <LogoStyled src={logoMR4} alt="logo" />;
 
 const Nav = ({ menu }) => (
   <nav style={{ marginLeft: 'auto' }}>
