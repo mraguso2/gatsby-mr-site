@@ -3,6 +3,7 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   background: hsl(210, 36%, 96%);
+  background: hsl(210, 50%, 96%);
   box-sizing: border-box;
   overflow-y: scroll;
 }

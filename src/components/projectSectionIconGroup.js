@@ -1,37 +1,58 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { below } from '../utilities/breakpoints';
+import { above, below } from '../utilities/breakpoints';
+import { ListSection, StyledList, ListGroup, ListGroupTitle } from '../styles/section';
 import sign from '../images/heroicon-sign-sm.svg';
-import tools from '../images/heroicon-tools-sm.svg';
 import clipboard from '../images/heroicon-form-sm.svg';
+import triangleDots from '../images/triangle-dots.svg';
+import circleDots from '../images/circle-dots.svg';
 
 const IconGroup = styled.div`
   display: flex;
-  justify-content: space-between;
   margin-right: 2rem;
+  background: hsla(210, 85%, 96%, 1);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 2px 10px;
+  position: relative;
+  max-width: 20rem;
+  width: 100%;
+  overflow: hidden;
+  text-transform: uppercase;
   img {
     margin-right: 0.6rem;
-    width: 35px;
+    width: 40px;
     ${below.med_1`
-      width: 30px;
+      width: 35px;
     `}
   }
   p {
     line-height: 1.4;
-    /* letter-spacing: 1px; */
+    letter-spacing: 1px;
     font-weight: 400;
     /* color: hsl(168, 80%, 23%); */
     color: hsl(209, 61%, 16%);
-    font-size: 1.7rem;
-    margin: 1.5rem auto;
+    color: hsl(214, 78%, 44%);
+    font-size: 1.4rem;
+    margin: 0.5rem 0;
     ${below.med_0`
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     `}
   }
   ${below.med_1`
     margin-right: 0;
   `}
+  ::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 100px;
+    transform: rotate(40deg);
+    background: white;
+    top: -10px;
+    right: -10px;
+    border-radius: 2px;
+  }
 `;
 
 const imageSrc = iconName => {
@@ -39,9 +60,6 @@ const imageSrc = iconName => {
   switch (iconName) {
     case 'clipboard':
       source = clipboard;
-      break;
-    case 'tools':
-      source = tools;
       break;
     case 'sign':
       source = sign;
@@ -57,39 +75,116 @@ const Description = styled.section`
   padding-top: 50px;
   padding-bottom: 50px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+  max-width: 500px;
+  margin: auto;
   ${below.med_1`
-    flex-direction: column;
   `}
 `;
 
-const DescText = styled.p`
-  max-width: 450px;
+const DescText = styled.div`
   line-height: 1.6;
-  padding: 15px;
+  padding: 15px 15px 15px 0px;
   position: relative;
   border-radius: 2px;
   margin: 0;
-  background: white;
+  /* background: white; */
   p {
     margin: 0;
   }
-  ::after {
-    content: ${props => (props.sectionHeader === 'Background' ? "''" : 'none')};
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform: rotate(-3deg);
-    background: #f7c948;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    border-radius: 2px;
-  }
-  ${below.small_1`
-    font-size: 0.95rem;
-  `}
 `;
+
+const CodeDetails = styled.section`
+  /* background: white; */
+  margin: auto;
+  max-width: 650px;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  ${above.med_0`
+    flex-direction: row;
+  `}
+  ::before {
+    content: url(${circleDots});
+    position: absolute;
+    width: 100px;
+    opacity: 0.6;
+    z-index: -1;
+    left: 0px;
+    bottom: 10px;
+  }
+  ::after {
+    content: url(${triangleDots});
+    position: absolute;
+    width: 100px;
+    opacity: 0.6;
+    z-index: -1;
+    right: 10px;
+    top: -10px;
+  }
+`;
+
+const CodeDetailItems = styled.div`
+  position: relative;
+  ${above.med_0`
+    width: 50%;
+  `}
+  &.github {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    ::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: -3.5px;
+      height: 1px;
+      width: 100%;
+      background-image: linear-gradient(
+        to right,
+        hsl(210, 36%, 96%),
+        hsl(264, 96%, 70%) 30%,
+        hsl(273, 80%, 49%) 50%,
+        hsl(264, 96%, 70%) 70%,
+        hsl(210, 36%, 96%)
+      );
+      ${above.med_0`
+        height: 100%;
+        width: 1px;
+        bottom: -3.5px;
+        background-image: linear-gradient(
+        to bottom,
+        hsl(210, 36%, 96%),
+        hsl(264, 96%, 70%) 30%,
+        hsl(273, 80%, 49%) 50%,
+        hsl(264, 96%, 70%) 70%,
+        hsl(210, 36%, 96%)
+      )
+      `}
+    }
+  }
+`;
+
+export const ProjectSectionTools = ({ children }) => (
+  <CodeDetails>
+    <CodeDetailItems>
+      <ListGroupTitle size="1rem">Built Using:</ListGroupTitle>
+      <StyledList>
+        {React.Children.toArray(children).map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </StyledList>
+    </CodeDetailItems>
+    <CodeDetailItems className="github">
+      <p>Check out the code at</p>
+      <p>Github</p>
+    </CodeDetailItems>
+  </CodeDetails>
+);
 
 const ProjectSectionIconGroup = ({ iconInfo, sectionHeader, children }) => (
   <Description>

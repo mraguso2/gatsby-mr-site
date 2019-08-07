@@ -2,8 +2,10 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 
-import { above } from '../utilities/breakpoints';
+import { above, below } from '../utilities/breakpoints';
 import envelope from '../images/envelope.svg';
+import iconCheveron from '../images/icon-cheveron-right-circle.svg';
+import iconBolt from '../images/icon-bolt.svg';
 
 export const SectionContainer = styled.section`
   margin-top: 30px;
@@ -205,3 +207,105 @@ export const SweetBorderTitle = styled.h3`
     content: '';
   }
 `;
+
+export const ListSectionTitle = styled(SweetBorderTitle)`
+  color: hsl(274, 87%, 31%);
+  ::after {
+    background-image: linear-gradient(
+      to right,
+      hsl(210, 36%, 96%),
+      hsl(264, 96%, 70%) 30%,
+      hsl(273, 80%, 49%) 50%,
+      hsl(264, 96%, 70%) 70%,
+      hsl(210, 36%, 96%)
+    );
+  }
+  ::before {
+    background-image: linear-gradient(
+      to right,
+      hsl(210, 36%, 96%),
+      hsl(264, 96%, 70%) 30%,
+      hsl(273, 80%, 49%) 50%,
+      hsl(264, 96%, 70%) 70%,
+      hsl(210, 36%, 96%)
+    );
+  }
+`;
+
+export const ListSection = styled.section`
+  margin-bottom: 35px;
+  article {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    ${below.small_0`
+      justify-content: flex-start;
+    `}
+  }
+`;
+
+export const StyledList = styled.ul`
+  list-style: none;
+  ${below.small_1`
+      padding-left: 30px;
+      `}
+  li {
+    padding-bottom: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    ${below.small_1`
+              font-size: 0.95rem;
+            `}
+    ::before {
+      content: url(${iconCheveron});
+      width: 25px;
+      position: relative;
+      display: inline-block;
+      margin-right: 7px;
+      top: 1.5px;
+    }
+  }
+`;
+
+export const ListGroup = styled.div`
+  margin-bottom: 10px;
+  ${below.small_0`
+    width: 100%;
+  `}
+`;
+
+export const ListGroupTitle = styled.p`
+  letter-spacing: 0.3px;
+  color: #5a687b;
+  font-size: ${props => props.size || '0.85rem'};
+  font-weight: 600;
+  text-align: center;
+  margin: 0 auto 10px;
+  ${above.med_2`
+    text-align: left;
+    margin-left: 1.75rem;
+    margin-top: 5px
+  `}
+`;
+
+const FeatureTextStyled = styled.p`
+  letter-spacing: 0.3px;
+  color: #5a687b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0 auto 0;
+  position: absolute;
+  left: 40px;
+  top: 5px;
+  text-transform: uppercase;
+  ::before {
+    content: url(${iconBolt});
+    position: absolute;
+    width: 20px;
+    left: -24px;
+    top: -1px;
+  }
+`;
+
+export const FeatureText = ({ title }) => <FeatureTextStyled>{title}</FeatureTextStyled>;

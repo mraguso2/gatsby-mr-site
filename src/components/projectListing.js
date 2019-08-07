@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ImageIcons from './imagesProjectIcons';
-
+import { FeatureText } from '../styles/section';
 import {
   CardLink,
   ImageContainer,
@@ -39,6 +39,7 @@ const ProjectListing = ({ node, type }) => (
         <ProjectBioContainer type={type}>{node.frontmatter.description}</ProjectBioContainer>
       </ProjectTextContainer>
     </CardLink>
+    {node.frontmatter.featured ? <FeatureText title="" /> : null}
     {node.frontmatter.tags ? <TagsList listing tags={node.frontmatter.tags} /> : ''}
   </ProjectCard>
 );

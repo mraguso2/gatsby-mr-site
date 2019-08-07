@@ -21,6 +21,7 @@ export const PROJECT_LISTING_EXCEL = graphql`
             icon
             type
             tags
+            featured
           }
         }
       }

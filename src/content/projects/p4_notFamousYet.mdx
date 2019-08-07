@@ -12,11 +12,13 @@ tags: ['gatsbyjs', 'styled-comp', 'mdx', 'graphql']
 ---
 
 import ProjectSectionTop from '../../components/projectSectionTop';
-import ProjectSectionIconGroup from '../../components/projectSectionIconGroup.js';
+import ProjectSectionIconGroup, {
+  ProjectSectionTools,
+} from '../../components/projectSectionIconGroup.js';
 
 <ProjectSectionTop frontmatter={props.frontmatter} />
 
-<ProjectSectionIconGroup iconInfo="clipboard" sectionHeader="Background">
+<ProjectSectionIconGroup iconInfo="clipboard" sectionHeader="BACKGROUND">
   Idea was to create a place where small just getting started entrepreneurs,
   businesses, DIY Etsy Crafters, [anyone trying to network] could connect. Most
   businesses start from tiny, unknown entities and hope to make it big or at
@@ -24,10 +26,11 @@ import ProjectSectionIconGroup from '../../components/projectSectionIconGroup.js
   famous people.
 </ProjectSectionIconGroup>
 
-<ProjectSectionIconGroup iconInfo="tools" sectionHeader="Under The Hood">
-  ["Currently collecting emails for future release date", "NodeJS", "GatsbyJS",
-  "Hosted on Netlify"]
-</ProjectSectionIconGroup>
+<ProjectSectionTools>
+  {'GatsbyJS'}
+  {'Hosted on Netlify'}
+  {'...Work-In-Progress...'}
+</ProjectSectionTools>
 
 <ProjectSectionIconGroup iconInfo="sign" sectionHeader="Next Steps">
   Project is still pretty young. The next big step is to finish the first

@@ -6,11 +6,18 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import BreadCrumbs from '../components/breadcrumbs';
 import AboutImage from '../components/imageAbout';
-import { Hero, HeroTitle, SweetBorderTitle } from '../styles/section';
-import { below, above } from '../utilities/breakpoints';
+import {
+  Hero,
+  HeroTitle,
+  ListSection,
+  ListSectionTitle,
+  ListGroup,
+  ListGroupTitle,
+  StyledList
+} from '../styles/section';
+import { above } from '../utilities/breakpoints';
 import MyFace from '../components/myFace';
 import camera from '../images/heroicon-camera-sm.svg';
-import iconCheveron from '../images/icon-cheveron-right-circle.svg';
 
 const Greeting = styled.h3`
   position: absolute;
@@ -70,86 +77,6 @@ const CameraGroup = styled.div`
       width: 50px;
     `}
   }
-`;
-
-const SkillsTitle = styled(SweetBorderTitle)`
-  color: hsl(274, 87%, 31%);
-  ::after {
-    background-image: linear-gradient(
-      to right,
-      hsl(210, 36%, 96%),
-      hsl(264, 96%, 70%) 30%,
-      hsl(273, 80%, 49%) 50%,
-      hsl(264, 96%, 70%) 70%,
-      hsl(210, 36%, 96%)
-    );
-  }
-  ::before {
-    background-image: linear-gradient(
-      to right,
-      hsl(210, 36%, 96%),
-      hsl(264, 96%, 70%) 30%,
-      hsl(273, 80%, 49%) 50%,
-      hsl(264, 96%, 70%) 70%,
-      hsl(210, 36%, 96%)
-    );
-  }
-`;
-
-const Skills = styled.section`
-  margin-bottom: 35px;
-  article {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    ${below.small_0`
-      justify-content: flex-start;
-    `}
-  }
-  ul {
-    list-style: none;
-    ${below.small_1`
-      padding-left: 30px;
-    `}
-  }
-  li {
-    padding-bottom: 10px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    ${below.small_1`
-      font-size: 0.95rem;
-    `}
-    ::before {
-      content: url(${iconCheveron});
-      width: 25px;
-      position: relative;
-      display: inline-block;
-      margin-right: 7px;
-      top: 1.5px;
-    }
-  }
-`;
-
-const ListGroup = styled.div`
-  margin-bottom: 10px;
-  ${below.small_0`
-    width: 100%;
-  `}
-`;
-
-const SkillsGroupTitle = styled.p`
-  letter-spacing: 0.3px;
-  color: #5a687b;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-align: center;
-  margin: 0 auto 10px;
-  ${above.med_2`
-    text-align: left;
-    margin-left: 1.75rem;
-    margin-top: 5px
-  `}
 `;
 
 const Bio = styled.section`
@@ -213,35 +140,35 @@ const AboutPage = () => (
       </CameraGroup>
       <MyFace style={myFaceStyles} noText outlineColor="hsl(209,61%,16%)" />
     </PicGroup>
-    <Skills>
-      <SkillsTitle>Skills</SkillsTitle>
+    <ListSection>
+      <ListSectionTitle>Skills</ListSectionTitle>
       <article>
         <ListGroup>
-          <SkillsGroupTitle>FRONTEND</SkillsGroupTitle>
-          <ul>
+          <ListGroupTitle>FRONTEND</ListGroupTitle>
+          <StyledList>
             {skills.frontend.map(skill => (
               <li key={skill}>{skill}</li>
             ))}
-          </ul>
+          </StyledList>
         </ListGroup>
         <ListGroup>
-          <SkillsGroupTitle>BACKEND</SkillsGroupTitle>
-          <ul>
+          <ListGroupTitle>BACKEND</ListGroupTitle>
+          <StyledList>
             {skills.backend.map(skill => (
               <li key={skill}>{skill}</li>
             ))}
-          </ul>
+          </StyledList>
         </ListGroup>
         <ListGroup>
-          <SkillsGroupTitle>GENERAL</SkillsGroupTitle>
-          <ul>
+          <ListGroupTitle>GENERAL</ListGroupTitle>
+          <StyledList>
             {skills.general.map(skill => (
               <li key={skill}>{skill}</li>
             ))}
-          </ul>
+          </StyledList>
         </ListGroup>
       </article>
-    </Skills>
+    </ListSection>
     <Bio>
       <div>
         <h3>My Bio</h3>

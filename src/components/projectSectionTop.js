@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { FullWidthContainer } from '../styles/section';
+import { FullWidthContainer, FeatureText } from '../styles/section';
 import { TagsGroup } from '../styles/projects';
 import { above, below } from '../utilities/breakpoints';
 import webCogs from '../images/floating-cogs.svg';
 import excelCogs from '../images/floating-cogs-excel.svg';
 import externalLink from '../images/icon-external-window.svg';
 import ImageIcons from './imagesProjectIcons';
-import iconBolt from '../images/icon-bolt.svg';
 
 const excelProjectTop = css`
   background-image: url(${excelCogs});
@@ -83,15 +82,16 @@ const TopText = styled.div`
   min-width: 227px;
   align-items: center;
   h3 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: #102a42;
     padding: 5px;
     border-radius: 8px;
     font-weight: 600;
     margin-bottom: 0.3rem;
     font-family: 'Muli', sans-serif;
+    text-align: center;
     ${above.small_1`
-      font-size: 1.6rem;
+      font-size: 1.8rem;
     `}
     ${above.med_0`
       font-size: 2rem;
@@ -109,26 +109,6 @@ const TopDetailsStyled = styled.div`
     font-size: 0.9rem;
   }
 `;
-
-const FeatureTextStyled = styled.p`
-  letter-spacing: 0.3px;
-  color: #5a687b;
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin: 0 auto 0;
-  position: absolute;
-  left: 40px;
-  top: 5px;
-  ::before {
-    content: url(${iconBolt});
-    position: absolute;
-    width: 20px;
-    left: -24px;
-    top: -1px;
-  }
-`;
-
-const FeatureText = () => <FeatureTextStyled>FEATURED</FeatureTextStyled>;
 
 const LinkToLiveStyled = styled.a`
   position: relative;
@@ -198,7 +178,7 @@ const ProjectSectionTop = ({ frontmatter }) => (
         {frontmatter.link ? <TopDetails frontmatter={frontmatter} /> : ''}
       </TopText>
     </TopSection>
-    {frontmatter.featured ? <FeatureText /> : null}
+    {frontmatter.featured ? <FeatureText title="FEATURED" /> : null}
     {frontmatter.tags ? <TagsList listing={false} tags={frontmatter.tags} /> : ''}
   </TopContainerStyled>
 );
