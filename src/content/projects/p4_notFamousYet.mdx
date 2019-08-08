@@ -8,6 +8,7 @@ image: 'somepic.jpeg'
 icon: 'NFY-icon.png'
 featured: false
 type: 'web'
+github: 'https://github.com/mraguso2'
 tags: ['gatsbyjs', 'styled-comp', 'mdx', 'graphql']
 ---
 
@@ -26,7 +27,7 @@ import ProjectSectionIconGroup, {
   famous people.
 </ProjectSectionIconGroup>
 
-<ProjectSectionTools>
+<ProjectSectionTools frontmatter={props.frontmatter}>
   {'GatsbyJS'}
   {'Hosted on Netlify'}
   {'...Work-In-Progress...'}

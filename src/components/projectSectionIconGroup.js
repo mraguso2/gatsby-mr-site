@@ -7,11 +7,14 @@ import sign from '../images/heroicon-sign-sm.svg';
 import clipboard from '../images/heroicon-form-sm.svg';
 import triangleDots from '../images/triangle-dots.svg';
 import circleDots from '../images/circle-dots.svg';
+import githubLogo from '../images/logo-github.svg';
+import externalLink from '../images/icon-external-window.svg';
 
 const IconGroup = styled.div`
   display: flex;
+  align-items: center;
   margin-right: 2rem;
-  background: hsla(210, 85%, 96%, 1);
+  background: hsla(210, 99%, 94%, 1);
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   padding: 2px 10px;
   position: relative;
@@ -99,7 +102,7 @@ const CodeDetails = styled.section`
   /* background: white; */
   margin: auto;
   max-width: 650px;
-  padding: 20px;
+  padding: 30px 20px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -110,19 +113,25 @@ const CodeDetails = styled.section`
     content: url(${circleDots});
     position: absolute;
     width: 100px;
-    opacity: 0.6;
+    opacity: 0.8;
     z-index: -1;
     left: 0px;
     bottom: 10px;
+    ${above.med_0`
+      bottom: -30px;
+    `}
   }
   ::after {
     content: url(${triangleDots});
     position: absolute;
     width: 100px;
-    opacity: 0.6;
+    opacity: 0.8;
     z-index: -1;
     right: 10px;
     top: -10px;
+    ${above.med_0`
+      top: -40px;
+    `}
   }
 `;
 
@@ -130,12 +139,28 @@ const CodeDetailItems = styled.div`
   position: relative;
   ${above.med_0`
     width: 50%;
+    margin: ${props => (props.type === 'excel' || props.github === '' ? 'auto' : '')}
   `}
+  &.builtWith {
+    ul {
+      max-width: 450px;
+      margin: 1rem auto;
+    }
+  }
   &.github {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    p {
+      margin-bottom: 1rem;
+    }
+    .logoGithub {
+      margin-right: 0.5rem;
+    }
+    .iconLink {
+      width: 1.2rem;
+    }
     ::before {
       content: '';
       display: inline-block;
@@ -169,9 +194,30 @@ const CodeDetailItems = styled.div`
   }
 `;
 
-export const ProjectSectionTools = ({ children }) => (
+const GithubLinkStyled = styled.a`
+  padding: 5px 10px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1), 0px 0px 30px rgba(0, 0, 0, 0.15);
+  transition: transform, box-shadow 0.5s;
+  :hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 40px hsla(0, 0%, 0%, 0.15), 0 3px 6px hsla(0, 0%, 0%, 0.1);
+  }
+`;
+
+const GithubBlock = ({ gitLink }) => (
+  <CodeDetailItems className="github">
+    <p>Check out the code at</p>
+    <GithubLinkStyled role="button" href={gitLink}>
+      <img className="logoGithub" src={githubLogo} alt="Github Logo" />
+      <img className="iconLink" src={externalLink} alt="external link icon" />
+    </GithubLinkStyled>
+  </CodeDetailItems>
+);
+
+export const ProjectSectionTools = ({ frontmatter: { type, github }, children }) => (
   <CodeDetails>
-    <CodeDetailItems>
+    <CodeDetailItems type={type} github={github} className="builtWith">
       <ListGroupTitle size="1rem">Built Using:</ListGroupTitle>
       <StyledList>
         {React.Children.toArray(children).map((item, i) => (
@@ -179,10 +225,7 @@ export const ProjectSectionTools = ({ children }) => (
         ))}
       </StyledList>
     </CodeDetailItems>
-    <CodeDetailItems className="github">
-      <p>Check out the code at</p>
-      <p>Github</p>
-    </CodeDetailItems>
+    {type === 'web' && github !== '' ? <GithubBlock gitLink={github} /> : ''}
   </CodeDetails>
 );
 
