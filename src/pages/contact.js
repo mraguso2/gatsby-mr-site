@@ -142,6 +142,7 @@ const ChanceVideoBlock = styled.div`
     align-self: flex-end;
     border-radius: 10px;
     right: 15px;
+    cursor: pointer;
   }
 `;
 

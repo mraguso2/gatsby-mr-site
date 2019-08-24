@@ -5,33 +5,49 @@ description: 'Hospital department level formatted dashboards and autopopulating 
 link: ''
 date: '2019-06-30'
 image: 'somepic.jpeg'
-icon: 'NFY-icon.png'
+icon: 'dashAndGraphs.png'
 featured: false
 type: 'excel'
 tags: ['excel', 'performance improvement']
 ---
 
 import ProjectSectionTop from '../../components/projectSectionTop';
-import ProjectSectionIconGroup from '../../components/projectSectionIconGroup.js';
+import ProjectSectionIconGroup, {
+  ProjectSectionTools,
+} from '../../components/projectSectionIconGroup.js';
 
 <ProjectSectionTop frontmatter={props.frontmatter} />
 
-<ProjectSectionIconGroup iconInfo="clipboard" sectionHeader="Background">
+<ProjectSectionIconGroup
+  frontmatter={props.frontmatter}
+  iconInfo="clipboard"
+  sectionHeader="Background"
+>
   Found an opportunity to help hospital departments with how they report data
-  and performance at quarterly Patient Saftey and Clinical Quality meetings.
+  and performance at monthly Patient Saftey and Clinical Quality meetings.
   Co-developed a standardized, complex excel dashboard to help departments track
   monthly performance on their focus metrics. Also created graphs for each
   metric that would automatically update upon new monthly data entered.
 </ProjectSectionIconGroup>
 
-<ProjectSectionIconGroup iconInfo="tools" sectionHeader="Under The Hood">
-  Excel VBA Macros Department Manager/Director view was protected and only
-  allowed monthly raw data to be entered. Super User view could manipulate the
-  dashboard shell to add/remove/edit metrics. We developed VBA for the super
-  users to quickly scaffold out each metrics graph after any edits were made.
-</ProjectSectionIconGroup>
+<ProjectSectionTools frontmatter={props.frontmatter}>
+  {'Excel VBA Macros'}
+  {
+    'Department Manager/Director view was protected and only allowed monthly raw data to be entered'
+  }
+  {
+    'Super User view could manipulate the dashboard shell to add/remove/edit metrics'
+  }
+  {
+    'We developed VBA for the super users to quickly scaffold out each metrics graph after any edits were made'
+  }
+</ProjectSectionTools>
 
-<ProjectSectionIconGroup iconInfo="sign" sectionHeader="Next Steps">
+<ProjectSectionIconGroup
+  frontmatter={props.frontmatter}
+  iconInfo="sign"
+  sectionHeader="Next Steps"
+>
   Stable version released Minor updates in the future Potential to convert to a
   web based solution
 </ProjectSectionIconGroup>

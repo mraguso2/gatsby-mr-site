@@ -8,28 +8,44 @@ image: 'somepic.jpeg'
 icon: 'PFP-icon.png'
 featured: true
 type: 'web'
+github: 'https://github.com/mraguso2/picks-for-playoffs'
 tags: ['node', 'express', 'auth', 'pug', 'mongodb']
 ---
 
 import ProjectSectionTop from '../../components/projectSectionTop';
-import ProjectSectionIconGroup from '../../components/projectSectionIconGroup.js';
+import ProjectSectionIconGroup, {
+  ProjectSectionTools,
+} from '../../components/projectSectionIconGroup.js';
 
 <ProjectSectionTop frontmatter={props.frontmatter} />
 
-<ProjectSectionIconGroup iconInfo="clipboard" sectionHeader="Background">
+<ProjectSectionIconGroup
+  frontmatter={props.frontmatter}
+  iconInfo="clipboard"
+  sectionHeader="Background"
+>
   An attempt to turn an NFL playoff contest played on paper into a digital one.
   The contest involves picking who you think will win during the NFL playoff
   rounds. Given the team I root for is the NY Jets, it allows me to still have
   fun during the playoffs.
 </ProjectSectionIconGroup>
 
-<ProjectSectionIconGroup iconInfo="tools" sectionHeader="Under The Hood">
-  Node-Express Backend Mongodb database Server Side Templating with Pug/Jade
-  Sass for styling Passport authentication Webpack for bundling Nodemailer for
-  sending emails Hosted on Heroku
-</ProjectSectionIconGroup>
+<ProjectSectionTools frontmatter={props.frontmatter}>
+  {'Node-Express Backend'}
+  {'Mongodb database'}
+  {'Server Side Templating with Pug/Jade'}
+  {'Sass for styling'}
+  {'Passport authentication'}
+  {'Webpack for bundling'}
+  {'Nodemailer for sending emails '}
+  {'Hosted on Heroku'}
+</ProjectSectionTools>
 
-<ProjectSectionIconGroup iconInfo="sign" sectionHeader="Next Steps">
+<ProjectSectionIconGroup
+  frontmatter={props.frontmatter}
+  iconInfo="sign"
+  sectionHeader="Next Steps"
+>
   Latest: MVP version released-- Updates needed before next NFL playoffs:
   -Create groups -Invite Players -Rebuild Point System/Point Display Board -Top
   Players Page -Finish Rules Page -Rework Landing Page -Squash those bugs

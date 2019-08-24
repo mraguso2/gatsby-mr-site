@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { above, below } from '../utilities/breakpoints';
-import { ListSection, StyledList, ListGroup, ListGroupTitle } from '../styles/section';
+import { StyledList, ListGroupTitle } from '../styles/section';
 import sign from '../images/heroicon-sign-sm.svg';
 import clipboard from '../images/heroicon-form-sm.svg';
 import triangleDots from '../images/triangle-dots.svg';
@@ -14,7 +14,8 @@ const IconGroup = styled.div`
   display: flex;
   align-items: center;
   margin-right: 2rem;
-  background: hsla(210, 99%, 94%, 1);
+  background: ${props =>
+    props.type === 'excel' ? 'hsla(166, 99%, 94%, 1)' : 'hsla(210, 99%, 94%, 1)'};
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   padding: 2px 10px;
   position: relative;
@@ -34,8 +35,8 @@ const IconGroup = styled.div`
     letter-spacing: 1px;
     font-weight: 400;
     /* color: hsl(168, 80%, 23%); */
-    color: hsl(209, 61%, 16%);
-    color: hsl(214, 78%, 44%);
+    /* color: hsl(209, 61%, 16%); */
+    color: ${props => (props.type === 'excel' ? 'hsl(166, 54%, 24%)' : 'hsl(214, 78%, 44%);')};
     font-size: 1.4rem;
     margin: 0.5rem 0;
     ${below.med_0`
@@ -82,8 +83,6 @@ const Description = styled.section`
   flex-direction: column;
   max-width: 500px;
   margin: auto;
-  ${below.med_1`
-  `}
 `;
 
 const DescText = styled.div`
@@ -92,14 +91,12 @@ const DescText = styled.div`
   position: relative;
   border-radius: 2px;
   margin: 0;
-  /* background: white; */
   p {
     margin: 0;
   }
 `;
 
 const CodeDetails = styled.section`
-  /* background: white; */
   margin: auto;
   max-width: 650px;
   padding: 30px 20px;
@@ -138,8 +135,8 @@ const CodeDetails = styled.section`
 const CodeDetailItems = styled.div`
   position: relative;
   ${above.med_0`
-    width: 50%;
-    margin: ${props => (props.type === 'excel' || props.github === '' ? 'auto' : '')}
+    width: ${props => (props.type === 'excel' || props.github === '' ? '' : '50%')};
+    margin: ${props => (props.type === 'excel' || props.github === '' ? 'auto' : '')};
   `}
   &.builtWith {
     ul {
@@ -229,9 +226,9 @@ export const ProjectSectionTools = ({ frontmatter: { type, github }, children })
   </CodeDetails>
 );
 
-const ProjectSectionIconGroup = ({ iconInfo, sectionHeader, children }) => (
+const ProjectSectionIconGroup = ({ frontmatter: { type }, iconInfo, sectionHeader, children }) => (
   <Description>
-    <IconGroup>
+    <IconGroup type={type}>
       <img src={imageSrc(iconInfo)} alt={iconInfo} />
       <p>{sectionHeader}</p>
     </IconGroup>

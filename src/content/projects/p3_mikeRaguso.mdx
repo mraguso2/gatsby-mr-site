@@ -8,26 +8,42 @@ image: 'somepic.jpeg'
 icon: 'MR-icon4.png'
 featured: true
 type: 'web'
+github: 'https://github.com/mraguso2/gatsby-mr-site'
 tags: ['gatsbyjs', 'styled-comp', 'mdx', 'graphql']
 ---
 
 import { Link } from 'gatsby';
 import ProjectSectionTop from '../../components/projectSectionTop';
-import ProjectSectionIconGroup from '../../components/projectSectionIconGroup.js';
+import ProjectSectionIconGroup, {
+  ProjectSectionTools,
+} from '../../components/projectSectionIconGroup.js';
 
 <ProjectSectionTop frontmatter={props.frontmatter} />
 
-<ProjectSectionIconGroup iconInfo="clipboard" sectionHeader="Background">
+<ProjectSectionIconGroup
+  frontmatter={props.frontmatter}
+  iconInfo="clipboard"
+  sectionHeader="Background"
+>
   I wanted a personal, digital portfolio to showcase my work and projects. It
   also serves as another way to document my website development skills. Please
   don't heistate to <Link to="/contact">get in touch</Link> if you have any
   questions, comments or want to just say Hi!
 </ProjectSectionIconGroup>
 
-<ProjectSectionIconGroup iconInfo="tools" sectionHeader="Under The Hood">
-  GatsbyJS React GraphQL MDX Styled Components Hosted on Netlify
-</ProjectSectionIconGroup>
+<ProjectSectionTools frontmatter={props.frontmatter}>
+  {'GatsbyJS'}
+  {'React'}
+  {'GraphQL'}
+  {'MDX'}
+  {'Styled Components'}
+  {'Hosted on Netlify'}
+</ProjectSectionTools>
 
-<ProjectSectionIconGroup iconInfo="sign" sectionHeader="Next Steps">
-  Stable version released -Potentially add a blog -Books Read Page
+<ProjectSectionIconGroup
+  frontmatter={props.frontmatter}
+  iconInfo="sign"
+  sectionHeader="Next Steps"
+>
+  Stable version released <br /> Potentially add a blog - Books Read Page
 </ProjectSectionIconGroup>

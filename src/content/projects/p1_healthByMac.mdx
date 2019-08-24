@@ -8,29 +8,39 @@ image: 'somepic.jpeg'
 icon: 'HBM-icon.png'
 featured: true
 type: 'web'
+github: ''
 tags: ['wordpress', 'php']
 ---
 
 import ProjectSectionTop from '../../components/projectSectionTop';
-import ProjectSectionIconGroup from '../../components/projectSectionIconGroup.js';
+import ProjectSectionIconGroup, {
+  ProjectSectionTools,
+} from '../../components/projectSectionIconGroup.js';
 
 <ProjectSectionTop frontmatter={props.frontmatter} />
 
-<ProjectSectionIconGroup iconInfo="clipboard" sectionHeader="Background">
+<ProjectSectionIconGroup
+  frontmatter={props.frontmatter}
+  iconInfo="clipboard"
+  sectionHeader="Background"
+>
   Created an online, digital presence for a personal trainer. The site would
   serve as a way to communicate to potential clients what health and exercise
   services she is offering. It was also going to contain a blog and allow
   interested, potential customers to get in touch with her.
 </ProjectSectionIconGroup>
 
-<ProjectSectionIconGroup iconInfo="tools" sectionHeader="Under The Hood">
-  Built in Wordpress
-  Edited the Theme Accelerate by ThemeGrill
-  Contact Form & email capability
+<ProjectSectionTools frontmatter={props.frontmatter}>
+  {'Built in Wordpress'}
+  {'Edited the Theme Accelerate by ThemeGrill'}
+  {'Contact Form & email capability'}
+</ProjectSectionTools>
 
-</ProjectSectionIconGroup>
-
-<ProjectSectionIconGroup iconInfo="sign" sectionHeader="Next Steps">
+<ProjectSectionIconGroup
+  frontmatter={props.frontmatter}
+  iconInfo="sign"
+  sectionHeader="Next Steps"
+>
   Stable version released with minimal style changes in the future Routine
   Maintenance
 </ProjectSectionIconGroup>

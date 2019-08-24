@@ -255,11 +255,11 @@ export const StyledList = styled.ul`
     display: flex;
     align-items: center;
     ${below.small_1`
-              font-size: 0.95rem;
-            `}
+      font-size: 0.95rem;
+    `}
     ::before {
       content: url(${iconCheveron});
-      width: 25px;
+      min-width: 25px;
       position: relative;
       display: inline-block;
       margin-right: 7px;

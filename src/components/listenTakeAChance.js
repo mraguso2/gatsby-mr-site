@@ -16,6 +16,7 @@ export const ListenButton = styled.button`
   padding: 5px 20px 5px 5px;
   width: 70px;
   margin-top: 5px;
+  cursor: pointer;
   ::after {
     content: url(${playButton});
     width: 15px;

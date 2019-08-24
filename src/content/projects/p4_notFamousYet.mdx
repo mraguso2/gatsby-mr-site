@@ -19,7 +19,11 @@ import ProjectSectionIconGroup, {
 
 <ProjectSectionTop frontmatter={props.frontmatter} />
 
-<ProjectSectionIconGroup iconInfo="clipboard" sectionHeader="BACKGROUND">
+<ProjectSectionIconGroup
+  frontmatter={props.frontmatter}
+  iconInfo="clipboard"
+  sectionHeader="BACKGROUND"
+>
   Idea was to create a place where small just getting started entrepreneurs,
   businesses, DIY Etsy Crafters, [anyone trying to network] could connect. Most
   businesses start from tiny, unknown entities and hope to make it big or at
@@ -33,7 +37,11 @@ import ProjectSectionIconGroup, {
   {'...Work-In-Progress...'}
 </ProjectSectionTools>
 
-<ProjectSectionIconGroup iconInfo="sign" sectionHeader="Next Steps">
-  Project is still pretty young. The next big step is to finish the first
+<ProjectSectionIconGroup
+  frontmatter={props.frontmatter}
+  iconInfo="sign"
+  sectionHeader="Next Steps"
+>
+  Project is still very young <br /> The next big step is to finish the first
   release.
 </ProjectSectionIconGroup>
