@@ -169,7 +169,7 @@ const SliceHero = () => {
   const [count, setCount] = useState(0);
   return (
     <div>
-      <EllipseBackground />
+      {/* <EllipseBackground /> */}
       <HeroStyled>
         Welcome to <LetterPieSlice letter="M" counter={{ count, setCount }} />y <br />
         Slice of the <br />

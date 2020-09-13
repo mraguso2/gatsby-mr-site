@@ -40,11 +40,11 @@ export const CardLink = styled(StyledLink)`
 `;
 
 export const ProjectCard = styled.article`
-  background: #fff;
+  background: #ffffff;
   /* background: linear-gradient(-45deg, white, #e4eefb, white); */
-  background: linear-gradient(-45deg, white, #f0f7ff, white);
+  /* background: linear-gradient(-45deg, white, #f0f7ff, white); */
   border-radius: 10px;
-  border-top: 2px solid #92aed0;
+  /* border-top: 2px solid #92aed0; */
   box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12);
   margin: 10px auto 25px;
   position: relative;
@@ -164,6 +164,10 @@ export const TagsGroup = styled.ul`
     background: #dce0e2;
     color: #383b3e;
     border-radius: 8px;
+    /* background: #d5f1ff;
+    color: #006290; */
+    /* background: #e7f2ff;
+    color: hsl(214, 71%, 32%); */
   }
   ${props => (props.listing ? ProjectListingTagsStyle : ProjectPageTagsStyle)}
 `;

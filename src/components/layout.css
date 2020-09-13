@@ -2,8 +2,9 @@ html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  background: hsl(210, 36%, 96%);
-  background: hsl(210, 50%, 96%);
+  /* background: hsl(210, 36%, 96%);
+  background: hsl(210, 50%, 96%); */
+  background: hsla(210, 100%, 97%, 1);
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -30,7 +31,8 @@ body {
   margin: 0;
   overflow-x: hidden;
   position: relative;
-  border-top: 2px solid #92aed0;
+  /* border-top: 2px solid #92aed0; */
+  border-top: 20px solid #ffffff;
   -moz-font-feature-settings: "kern", "liga", "clig", "calt";
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
