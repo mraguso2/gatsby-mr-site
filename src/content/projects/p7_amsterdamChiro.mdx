@@ -1,0 +1,46 @@
+---
+slug: '/amsterdam-chiro'
+title: 'Amsterdam Chiro'
+description: 'Simple landing page for a chiropractic & massage office'
+link: 'https://amsterdamchiro.com'
+date: '2020-09-09'
+image: 'somepic.jpeg'
+icon: 'amsterchiro.png'
+featured: true
+type: 'web'
+github: 'https://github.com/mraguso2/amsterdam-chiropractic'
+tags: ['gastbyjs', 'react', 'styled-comp', 'tailwindCSS']
+---
+
+import { Link } from 'gatsby';
+import ProjectSectionTop from '../../components/projectSectionTop';
+import ProjectSectionIconGroup, {
+  ProjectSectionTools,
+} from '../../components/projectSectionIconGroup.js';
+
+<ProjectSectionTop frontmatter={props.frontmatter} />
+
+<ProjectSectionIconGroup
+  frontmatter={props.frontmatter}
+  iconInfo="clipboard"
+  sectionHeader="Background"
+>
+  A simple, brief landing page for a fantastic chiropractic and massage office.
+  Displays details about the doctor, services offered and how you can contact
+  them.
+</ProjectSectionIconGroup>
+
+<ProjectSectionTools frontmatter={props.frontmatter}>
+  {'GatsbyJS'}
+  {'React'}
+  {'Styled Components'}
+  {'Hosted on Netlify'}
+</ProjectSectionTools>
+
+<ProjectSectionIconGroup
+  frontmatter={props.frontmatter}
+  iconInfo="sign"
+  sectionHeader="Next Steps"
+>
+  Stable version released
+</ProjectSectionIconGroup>

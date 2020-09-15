@@ -1,0 +1,50 @@
+---
+slug: '/tides'
+title: 'Eatons Neck Tides'
+description: 'A quick way to find the ocean tides for Eatons Neck Beach'
+link: 'https://tides.now.sh/'
+date: '2020-06-30'
+image: 'somepic.jpeg'
+icon: 'tides.png'
+featured: true
+type: 'web'
+github: 'https://github.com/mraguso2/tides'
+tags: ['nextjs', 'react', 'styled-comp']
+---
+
+import { Link } from 'gatsby';
+import ProjectSectionTop from '../../components/projectSectionTop';
+import ProjectSectionIconGroup, {
+  ProjectSectionTools,
+} from '../../components/projectSectionIconGroup.js';
+
+<ProjectSectionTop frontmatter={props.frontmatter} />
+
+<ProjectSectionIconGroup
+  frontmatter={props.frontmatter}
+  iconInfo="clipboard"
+  sectionHeader="Background"
+>
+  Built a quick one page website to show the ocean high & low tide times in
+  beautiful{' '}
+  <a href="https://en.wikipedia.org/wiki/Eatons_Neck,_New_York">
+    Eatons Neck, NY
+  </a>
+</ProjectSectionIconGroup>
+
+<ProjectSectionTools frontmatter={props.frontmatter}>
+  {'NextJS'}
+  {'React'}
+  {'Styled Components'}
+  {'Serverless API'}
+  {'Hosted on Now'}
+</ProjectSectionTools>
+
+<ProjectSectionIconGroup
+  frontmatter={props.frontmatter}
+  iconInfo="sign"
+  sectionHeader="Next Steps"
+>
+  Stable version released <br /> Make it prettier/clean up the codebase <br />{' '}
+  Make it easier to quickly see if currently high or low tide
+</ProjectSectionIconGroup>

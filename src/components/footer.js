@@ -10,10 +10,14 @@ const FooterStyled = styled.footer`
   padding: 10px;
   background: ${colors.neutral.neutral10};
   color: ${colors.neutral.neutral2};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
   & div {
     max-width: 960px;
     margin: auto;
-    width: 100%;
+    /* width: 100%; */
   }
   & a {
     color: #b7ddff;
@@ -27,7 +31,7 @@ const FooterStyled = styled.footer`
 
 const Footer = () => (
   <FooterStyled>
-    <div>
+    <div style={{ minHeight: '3rem' }}>
       © {new Date().getFullYear()}, Built with ❤️ by&nbsp;
       <a href="/">MR</a>
     </div>

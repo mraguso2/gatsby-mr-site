@@ -109,15 +109,15 @@ const ProjectsPage = () => (
         </p>
       </IconGroup>
       <DescText>
-        A collection of projects that I have built. They are grouped into Web and Microsoft Excel
-        buckets. Projects range in complexity, size, tech used and whether or not still actively
-        being developed. Check them out and contact me with any questions! <br />
+        A collection of projects that I have built. Projects range in complexity, size, tech used
+        and whether or not still actively being developed. Check them out and contact me with any
+        questions! <br />
         <span className="dadjoke">
           This list is not exhaustive but some were definitely <em>tiring</em>.{' '}
           <span role="img" aria-label="Smiley Face">
             😁
-          </span>
-          <em>[really??]</em>
+          </span>{' '}
+          <em>[ughh]</em>
         </span>
       </DescText>
     </Description>
@@ -125,10 +125,11 @@ const ProjectsPage = () => (
       <WebTitle>Web Projects</WebTitle>
       <WebProjects />
     </SectionContainer>
-    <SectionContainer>
+    {/* Comment out Excel shtuff for now */}
+    {/* <SectionContainer>
       <ExcelTitle>Excel Projects</ExcelTitle>
       <ExcelProjects />
-    </SectionContainer>
+    </SectionContainer> */}
   </Layout>
 );
 

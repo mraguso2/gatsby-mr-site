@@ -51,6 +51,9 @@ export const ProjectCard = styled.article`
   transition: transform, box-shadow 0.5s;
   max-width: 600px;
   width: 100%;
+  min-height: 9rem;
+  display: flex;
+  align-items: center;
   ${props => (props.type === 'excel' ? excelCard : '')}
   :hover {
     transform: translateY(-2px);
