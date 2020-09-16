@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import styled, { keyframes, css } from 'styled-components';
 
 import ellipseBackground from '../images/ellipse-bkgd2.svg';
-import pieSlicedM from '../images/Pie-Sliced-M.svg';
-import pieSlicedW from '../images/Pie-Sliced-W.svg';
+// import pieSlicedM from '../images/Pie-Sliced-M.svg';
+// import pieSlicedW from '../images/Pie-Sliced-W.svg';
+import pieSlicedM from '../images/pizza_M.svg';
+import pieSlicedW from '../images/pizza_W.svg';
 import { above, below } from '../utilities/breakpoints';
 
 // CSS Helper
@@ -78,12 +80,16 @@ const moveSliceM = keyframes`
   }
   10% {
     opacity: 1;
+    width: 40px;
   }
   95% {
-    opacity: 1; transform: translate3d(10px, -28px, 0) rotate(20deg);
+    opacity: 1; transform: translate3d(10px, -35px, 0) rotate(25deg);
+    width: 40px;
   }
   100% {
-    opacity: 1; transform: translate3d(10px, -28px, 0) rotate(20deg);
+    /* opacity: 1; transform: translate3d(10px, -28px, 0) rotate(20deg); */
+    opacity: 1; transform: translate3d(10px, -35px, 0) rotate(25deg);
+    width: 40px;
   }
 `;
 
@@ -93,12 +99,16 @@ const moveSliceW = keyframes`
   }
   10% {
     opacity: 1;
+    width: 40px;
   }
   95% {
-    opacity: 1; transform: translate3d(-10px, 28px, 0) rotate(40deg);
+    opacity: 1; transform: translate3d(-15px, 40px, 0) rotate(35deg);
+    width: 40px;
   }
   100% {
-    opacity: 1; transform: translate3d(-10px, 28px, 0) rotate(40deg);
+    /* opacity: 1; transform: translate3d(-10px, 30px, 0) rotate(40deg); */
+    opacity: 1; transform: translate3d(-15px, 40px, 0) rotate(35deg);
+    width: 40px;
   }
 `;
 
@@ -108,15 +118,18 @@ const PieImage = styled.img`
   opacity: 0;
   transform: translate3d(0, 0, 0);
   transition: all 1.5s;
-  will-change: transform, opacity;
+  will-change: transform, opacity, width;
   top: ${props => (props.letter === 'M' ? '0' : 'inherit')};
-  animation: ${props => (props.letter === 'M' ? moveSliceM : moveSliceW)} 1s linear 0.7s 1 forwards;
+  animation: ${props => (props.letter === 'M' ? moveSliceM : moveSliceW)} 0.8s linear 0.9s 1
+    forwards;
 `;
 
 const TooMuchPie = styled.h3`
   padding: 15px 15px 10px 10px;
   background: #f2ecfe;
   color: #5628b1;
+  background: #fee793;
+  color: #655006;
   font-weight: 400;
   border-radius: 10px;
   box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12);
@@ -128,13 +141,16 @@ const TooMuchPie = styled.h3`
   margin: auto;
   max-width: 400px;
   position: relative;
+  margin-top: 3rem;
   .close {
     position: absolute;
     top: 0px;
     right: 0;
     color: #c10d0d;
     margin-top: 0;
-    font-size: 13px;
+    /* font-size: 13px; */
+    font-size: 25px;
+    padding: 0.25rem 0.75rem 0.5rem;
     -webkit-appearance: none;
     -moz-appearance: none;
     background: none;
@@ -177,10 +193,11 @@ const SliceHero = () => {
         eb
       </HeroStyled>
       <div>
-        <TooMuchPie showMe={count >= 5}>
-          Slow down, you don't want a belly ache!
+        <TooMuchPie showMe={count >= 8}>
+          1 Whole Pie Down!
           <button type="button" onClick={() => setCount(0)} className="close">
-            close <span style={{ color: '#c10d0d' }}>&#10006;</span>
+            {/* close  */}
+            <span style={{ color: '#c10d0d' }}>&#10006;</span>
           </button>
         </TooMuchPie>
       </div>
