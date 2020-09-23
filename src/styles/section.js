@@ -49,10 +49,14 @@ export const SectionTitle = styled.h2`
     display: inline-block;
     position: absolute;
     left: 0;
-    bottom: -3.5px;
-    height: 2px;
+    bottom: -6.5px;
+    height: 8px;
+    border-radius: 5px;
     width: ${props => props.width || ''};
-    background: ${props => props.colorLine || 'hsl(209,61%,16%)'};
+    /* background: ${props => props.colorLine || 'hsl(209,61%,16%)'}; */
+    background: hsla(258, 100%, 62%, 0.5);
+    background: hsla(233, 100%, 62%, 0.5);
+    background: linear-gradient(90deg, hsla(258, 100%, 62%, 0.5), hsla(233, 100%, 62%, 0.5));
     -webkit-transform: rotate(-1deg);
     -webkit-transform: rotate(-1deg);
     -ms-transform: rotate(-1deg);

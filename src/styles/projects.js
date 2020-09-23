@@ -51,7 +51,7 @@ export const ProjectCard = styled.article`
   transition: transform, box-shadow 0.5s;
   max-width: 600px;
   width: 100%;
-  min-height: 9rem;
+  min-height: 9.5rem;
   display: flex;
   align-items: center;
   ${props => (props.type === 'excel' ? excelCard : '')}
@@ -134,7 +134,7 @@ const ProjectListingTagsStyle = css`
     `}
   ${above.med_2`
     padding-left: 6.5rem;
-    bottom: 5px;
+    bottom: 10px;
     right: initial;
     top: initial;
     justify-content: flex-start;
@@ -156,7 +156,7 @@ export const TagsGroup = styled.ul`
   width: 100%;
   padding-left: ${props => (props.listing ? 0 : '3rem')};
   justify-content: center;
-  bottom: 5px;
+  bottom: 10px;
   li {
     font-size: 0.7rem;
     text-transform: lowercase;
@@ -164,13 +164,14 @@ export const TagsGroup = styled.ul`
     padding: 2px 5px;
     margin-left: 5px;
     margin-right: 5px;
-    background: #dce0e2;
-    color: #383b3e;
+    /* background: #dce0e2;
+    color: #383b3e; */
     border-radius: 8px;
     /* background: #d5f1ff;
     color: #006290; */
-    /* background: #e7f2ff;
-    color: hsl(214, 71%, 32%); */
+    background: #e7f2ff;
+    color: hsl(214, 71%, 32%);
+    box-shadow: 0 1px 1px hsla(215, 64%, 35%, 0.5);
   }
   ${props => (props.listing ? ProjectListingTagsStyle : ProjectPageTagsStyle)}
 `;

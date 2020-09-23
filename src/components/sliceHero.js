@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes, css } from 'styled-components';
 
-import ellipseBackground from '../images/ellipse-bkgd2.svg';
 // import pieSlicedM from '../images/Pie-Sliced-M.svg';
 // import pieSlicedW from '../images/Pie-Sliced-W.svg';
 import pieSlicedM from '../images/pizza_M.svg';
@@ -41,27 +40,6 @@ const ImgStyled = styled.img`
     height: 210px;
   `}
 `;
-
-// const enticePie = keyframes`
-//   {
-//     0% {
-//       transform: scale(.33);
-//     }
-//     80%, 100% {
-//       opacity: 0;
-//     }
-//   }
-// `;
-// ::before {
-//   content: 'adf';
-//   position: relative;
-//   display: block;
-//   width: 300%;
-//   height: 300%;
-//   border-radius: 45px;
-//   background-color: #01a4e9;
-//   animation: ${enticePie} 4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
-// }
 
 const PieContainer = styled.div`
   position: relative;
@@ -158,8 +136,6 @@ const TooMuchPie = styled.h3`
   }
 `;
 
-const EllipseBackground = () => <ImgStyled src={ellipseBackground} alt="Background Image" />;
-
 const handlePieClick = e => {
   const pieContainer = e.currentTarget;
   const slice = pieContainer.querySelector('img');
@@ -185,7 +161,6 @@ const SliceHero = () => {
   const [count, setCount] = useState(0);
   return (
     <div>
-      {/* <EllipseBackground /> */}
       <HeroStyled>
         Welcome to <LetterPieSlice letter="M" counter={{ count, setCount }} />y <br />
         Slice of the <br />
