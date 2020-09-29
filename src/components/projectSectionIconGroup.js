@@ -14,15 +14,14 @@ const IconGroup = styled.div`
   display: flex;
   align-items: center;
   margin-right: 2rem;
-  background: ${props =>
-    props.type === 'excel' ? 'hsla(166, 99%, 94%, 1)' : 'hsla(210, 99%, 94%, 1)'};
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 2px 10px;
+  background: linear-gradient(90deg, hsl(212, 100%, 97%), hsla(210, 99%, 94%, 1));
+  padding: 2px 0px;
   position: relative;
   max-width: 20rem;
   width: 100%;
   overflow: hidden;
   text-transform: uppercase;
+  border-radius: 5px;
   img {
     margin-right: 0.6rem;
     width: 40px;
@@ -87,7 +86,7 @@ const Description = styled.section`
 
 const DescText = styled.div`
   line-height: 1.6;
-  padding: 15px 15px 15px 0px;
+  padding: 15px 15px 15px 5px;
   position: relative;
   border-radius: 2px;
   margin: 0;

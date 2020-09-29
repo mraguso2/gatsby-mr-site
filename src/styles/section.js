@@ -263,11 +263,11 @@ export const StyledList = styled.ul`
     `}
     ::before {
       content: url(${iconCheveron});
-      min-width: 25px;
+      min-width: 20px;
       position: relative;
       display: inline-block;
       margin-right: 7px;
-      top: 1.5px;
+      top: 2px;
     }
   }
 `;

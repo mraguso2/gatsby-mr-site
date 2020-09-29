@@ -13,7 +13,7 @@ const FooterStyled = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 4rem;
+  height: 6rem;
   & div {
     max-width: 960px;
     margin: auto;

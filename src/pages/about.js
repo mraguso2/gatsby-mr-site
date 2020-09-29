@@ -102,8 +102,8 @@ const Bio = styled.section`
 `;
 
 const skills = {
-  frontend: ['JavaScript', 'CSS3', 'HTML5', 'ReactJS', 'GatsbyJS', 'WordPress', 'UX/UI'],
-  backend: ['SQL', 'Express', 'NodeJS', 'MongoDB', 'Firebase', 'Microsoft Access'],
+  frontend: ['JavaScript', 'ReactJS', 'NextJS', 'GatsbyJS', 'UX/UI', 'CSS3', 'HTML5'],
+  backend: ['SQL', 'Express', 'NodeJS', 'MongoDB', 'Serverless', 'Microsoft Access'],
   general: ['Lean Six Sigma', 'Excel VBA', 'Instructor', 'Tableau', 'Data Analytics']
 };
 

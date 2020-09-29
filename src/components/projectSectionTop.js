@@ -32,6 +32,7 @@ const TopContainerStyled = styled(FullWidthContainer)`
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   height: 210px;
+  border-radius: 5px;
   ::before {
     content: '';
     width: 15px;
@@ -103,6 +104,7 @@ const TopDetailsStyled = styled.div`
   color: hsl(209, 61%, 16%);
   background: hsla(211, 51%, 91%, 0.5);
   background: linear-gradient(90deg, hsla(44, 100%, 90%, 0.58), hsla(230, 100%, 90%, 0.7));
+  box-shadow: 0 3px 5px rgb(220, 227, 253);
   border-radius: 5px;
   min-width: 135px;
   p {
