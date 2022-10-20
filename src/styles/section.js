@@ -62,22 +62,19 @@ export const SectionTitle = styled.h2`
     -ms-transform: rotate(-1deg);
     transform: rotate(-3deg);
     content: '';
+    width: 100%;
   }
 `;
 
 export const HeroTitle = styled(SectionTitle)`
-  background: white;
-  border-radius: 10px;
   padding: 8px;
   position: relative;
-  top: -20px;
-  left: 15px;
-  box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12);
+  font-weight: 700;
   ${above.med_0`
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   `}
   ${above.med_1`
-    font-size: 2.5rem;
+    font-size: 3rem;
   `}
 `;
 
@@ -94,6 +91,7 @@ const aboutHero = css`
 const projectsHero = css`
   height: 200px;
   max-width: 600px;
+  margin: auto;
   ::before {
     border: 2px solid #699bde;
     background: #f1f5f8;
@@ -118,24 +116,6 @@ const projectsHero = css`
 export const Hero = styled.div`
   position: relative;
   margin-top: 5px;
-  ::before {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #92aed0;
-  }
-  ::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, hsla(0, 0%, 0%, 0.15) 80%, hsla(0, 0%, 0%, 0.55));
-  }
   ${props => (props['data-hero'] === 'about' ? aboutHero : '')};
   ${props => (props['data-hero'] === 'projects' ? projectsHero : '')};
 `;
