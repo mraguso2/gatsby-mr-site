@@ -16,19 +16,6 @@ const Top = styled.div`
   position: relative;
   max-width: 850px;
   margin: auto;
-  ::after {
-    content: url(${projSVG});
-    opacity: 0.15;
-    width: 210px;
-    position: absolute;
-    top: -60px;
-    right: 0;
-    z-index: -1;
-    transform: rotate(-180deg);
-    ${above.med_1`
-      width: 270px;
-      `}
-  }
 `;
 
 const Description = styled.section`
