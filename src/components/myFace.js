@@ -1,13 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import Image from './image';
 import { above, below } from '../utilities/breakpoints';
 
+const slideIn = keyframes`
+  0% {
+    opacity: 0; transform: translateX(-110%) scale(0.25, 0.25);
+  }
+  100% {
+    opacity: 1; transform: translateX(0) scale(1, 1);
+  }
+`;
+
 const ImageContainer = styled.div`
   width: 100%;
   max-width: 130px;
+  transform: translateX(-110%) scale(0.25, 0.25);
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: ${slideIn} 1s linear 1s 1 forwards;
   ${below.small_0`
     max-width: 110px;
   `}
